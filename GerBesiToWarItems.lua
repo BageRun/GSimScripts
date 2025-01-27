@@ -28,8 +28,10 @@ function mainMenu()
 
         if pilihanBarang == 1 then
             ubahBarang("Besi")
-        elseif pilihanBarang == 2 or pilihanBarang == nil then
+        elseif pilihanBarang == 2 then
             Keluar()
+        elseif pilihanBarang == nil then
+            UI = 0
         end
     end
 end

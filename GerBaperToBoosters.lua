@@ -63,8 +63,10 @@ function mainMenu()
 
         if pilihanBarang == 1 then
             pilihBarangPerang()
-        elseif pilihanBarang == 2 or pilihanBarang == nil then
+        elseif pilihanBarang == 2 then
             Keluar()
+        elseif pilihanBarang == nil then
+            UI = 0
         end
     end
 end
@@ -119,7 +121,6 @@ function gantiNilai(barangNamaPerang, boosterYangDipilih, boosterNama)
     gg.editAll(boosterYangDipilih, gg.TYPE_DWORD)
     gg.toast("Sip, " .. barangNamaPerang .. "nya Udah Diubah Jadi " .. boosterNama .. " Yaa, Sekarang Keluar Dari Game, Lalu Masuk Lagi...")
     gg.clearResults()
-    mainMenu()
 end
 
 function Keluar()
