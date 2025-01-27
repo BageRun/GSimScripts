@@ -55,7 +55,16 @@ function mainMenu()
         elseif pilihanBarang == 2 then
             Keluar()
         elseif pilihanBarang == nil then
-            UI = 0
+            if gg.isVisible(true) then
+                UI = 1
+                gg.sleep(99)
+                gg.setVisible(false)
+            end
+        
+            if UI == 1 then
+                gg.sleep(99)
+                return
+            end
         end
     end
 end

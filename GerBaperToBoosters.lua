@@ -1,4 +1,5 @@
 local UI = 0
+local lastFunction = nil
 
 local BoosterEnergy = {
     ["Energy Pump 2"] = "1965976283",
@@ -54,7 +55,26 @@ local BarangPerang = {
     ["Anvil"] = "253271711",
 }
 
+function hideUI()
+    gg.sleep(100)
+    gg.setVisible(false)
+    while not gg.isVisible() do
+        gg.sleep(100)
+    end
+    gg.setVisible(false)
+    resumeLastFunction()
+end
+
+function resumeLastFunction()
+    if lastFunction then
+        lastFunction()
+    else
+        mainMenu()
+    end
+end
+
 function mainMenu()
+    lastFunction = mainMenu
     while true do
         local pilihanBarang = gg.choice({
             "Barang Perang",
@@ -66,12 +86,13 @@ function mainMenu()
         elseif pilihanBarang == 2 then
             Keluar()
         elseif pilihanBarang == nil then
-            UI = 0
+            hideUI()
         end
     end
 end
 
 function pilihBarangPerang()
+    lastFunction = pilihBarangPerang
     local pilihanBarangPerang = {}
     for namaBarang, _ in pairs(BarangPerang) do
         table.insert(pilihanBarangPerang, namaBarang)
@@ -89,6 +110,9 @@ function pilihBarangPerang()
 end
 
 function pilihBooster(barangNamaPerang)
+    lastFunction = function()
+        pilihBooster(barangNamaPerang)
+    end
     local pilihanBooster = {}
     for kategori, booster in pairs(BoosterCategories) do
         for namaBooster, _ in pairs(booster) do
@@ -120,7 +144,7 @@ function gantiNilai(barangNamaPerang, boosterYangDipilih, boosterNama)
     gg.getResults(200)
     gg.editAll(boosterYangDipilih, gg.TYPE_DWORD)
     gg.toast("Sip, " .. barangNamaPerang .. "nya Udah Diubah Jadi " .. boosterNama .. " Yaa, Sekarang Keluar Dari Game, Lalu Masuk Lagi...")
-    gg.clearResults()
+    hideUI()
 end
 
 function Keluar()
