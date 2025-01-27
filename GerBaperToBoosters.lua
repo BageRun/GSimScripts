@@ -117,7 +117,7 @@ function gantiNilai(barangNamaPerang, boosterYangDipilih, boosterNama)
     gg.searchNumber(BarangPerang[barangNamaPerang], gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
     gg.getResults(200)
     gg.editAll(boosterYangDipilih, gg.TYPE_DWORD)
-    gg.alert("Sip, " .. barangNamaPerang .. "nya Udah Diubah Jadi " .. boosterNama .. " Yaa, Sekarang Keluar Dari Game, Lalu Masuk Lagi...")
+    gg.toast("Sip, " .. barangNamaPerang .. "nya Udah Diubah Jadi " .. boosterNama .. " Yaa, Sekarang Keluar Dari Game, Lalu Masuk Lagi...")
     gg.clearResults()
     mainMenu()
 end

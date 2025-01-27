@@ -4,7 +4,6 @@ local barang = {
     ["Besi"] = "267176888",
 }
 
--- Local untuk Barang Perang
 local BarangPerang = {
     ["Teropong"] = "1560176023",
     ["Hidran Kebarakan"] = "860715237",
@@ -63,7 +62,7 @@ function gantiNilai(nilaiLama, nilaiBaru, pilihanNama, barangPilih)
     gg.searchNumber(nilaiLama, gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
     gg.getResults(200)
     gg.editAll(nilaiBaru, gg.TYPE_DWORD)
-    gg.alert("Sip, " .. barangPilih .. "nya Udah Diubah Jadi " .. pilihanNama .. " Yaa, Sekarang Keluar Dari Game, Lalu Masuk Lagi...")
+    gg.toast("Sip, " .. barangPilih .. "nya Udah Diubah Jadi " .. pilihanNama .. " Yaa, Sekarang Keluar Dari Game, Lalu Masuk Lagi...")
     gg.clearResults()
     mainMenu()
 end

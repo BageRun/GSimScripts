@@ -4,7 +4,6 @@ local barang = {
     ["Besi"] = "267176888",
 }
 
--- Local untuk Kartu Perang sesuai dengan class dan kartunya
 local ClassSWarcard = {
     ["Hand Comics"] = "1430583743",
     ["Shrink Ray"] = "1430583746",
@@ -140,13 +139,13 @@ function gantiNilai(nilaiLama, nilaiBaru, pilihanNama, barangPilih)
     gg.searchNumber(nilaiLama, gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
     gg.getResults(200)
     gg.editAll(nilaiBaru, gg.TYPE_DWORD)
-    gg.alert("Sip, " .. barangPilih .. "nya Udah Diubah Jadi " .. pilihanNama .. " Yaa, Sekarang Keluar Dari Game, Lalu Masuk Lagi...")
+    gg.toast("Sip, " .. barangPilih .. "nya Udah Diubah Jadi " .. pilihanNama .. " Yaa, Sekarang Keluar Dari Game, Lalu Masuk Lagi...")
     gg.clearResults()
     mainMenu()
 end
 
 function Keluar()
-    gg.alert("Script Keluar, Skibidi BageRun Sigma King Mewing")
+    gg.toast("Script Keluar, Skibidi BageRun Sigma King Mewing")
     os.exit()
 end
 

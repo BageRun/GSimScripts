@@ -4,7 +4,6 @@ local barang = {
     ["Besi"] = "267176888",
 }
 
--- Local untuk Booster Perang
 local BoosterEnergy = {
     ["Energy Pump 2"] = "1965976283",
     ["Energy Pump 3"] = "1965976284",
@@ -35,7 +34,6 @@ local BoosterUmbrella = {
     ["Umbrella 3"] = "1587235434",
 }
 
--- Kumpulan Booster untuk mempermudah akses dinamis
 local BoosterCategories = {
     ["Energy"] = BoosterEnergy,
     ["Jackpot"] = BoosterJackpot,
@@ -130,7 +128,7 @@ function gantiNilai(nilaiLama, nilaiBaru, pilihanNama, barangPilih)
     gg.searchNumber(nilaiLama, gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
     gg.getResults(200)
     gg.editAll(nilaiBaru, gg.TYPE_DWORD)
-    gg.alert("Sip, " .. barangPilih .. "nya Udah Diubah Jadi " .. pilihanNama .. " Yaa, Sekarang Keluar Dari Game, Lalu Masuk Lagi...")
+    gg.toast("Sip, " .. barangPilih .. "nya Udah Diubah Jadi " .. pilihanNama .. " Yaa, Sekarang Keluar Dari Game, Lalu Masuk Lagi...")
     gg.clearResults()
     mainMenu()
 end
