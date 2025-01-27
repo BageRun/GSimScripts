@@ -10,7 +10,7 @@ function Main()
  if PilihanUtama[3] == true then UtilityHack() end 
  if PilihanUtama[4] == true then BuildEpicBuilding() end 
  if PilihanUtama[5] == true then Keluar() end 
- XGCK = -1 
+ UI = -1 
 end 
 
 function BasicBuilding() 
@@ -54,7 +54,7 @@ function BasicBuilding()
  if BangunanBiasa[17] == true then Perjudian10() end 
  if BangunanBiasa[18] == true then Hiburan10() end 
  if BangunanBiasa[19] == true then Main() end 
- XGCK = -1 
+ UI = -1 
 end 
 
 function PuriMaxis() 
@@ -221,7 +221,7 @@ function EpicBuilding()
  if PilihanEpicBuilding[6] == true then PantaiEpic() end 
  if PilihanEpicBuilding[7] == true then GunungEpic() end 
  if PilihanEpicBuilding[8] == true then Main() end 
- XGCK=-1 
+ UI =-1 
 end 
 
 function PendidikanEpic() 
@@ -304,7 +304,7 @@ function UtilityHack()
  if PilihanUtilityHack[8] == true then RefreshNeoMall() end 
  if PilihanUtilityHack[9] == true then RefreshEpic24Jam() end 
  if PilihanUtilityHack[10] == true then Main() end 
- XGCK=-1 
+ UI =-1 
 end 
 
 function GudangKotaMax() 
@@ -418,7 +418,7 @@ function BuildEpicBuilding()
  if PilihanRumahToEpicBuilding[13] == true then FastEpicGunung() end 
  if PilihanRumahToEpicBuilding[14] == true then ClearEpicGunung() end 
  if PilihanRumahToEpicBuilding[15] == true then Main() end 
- XGCK=-1 
+ UI =-1 
 end 
 
 function FastEpicPendidikan() 
@@ -534,11 +534,11 @@ end
 cs = "23333" 
 while true do 
   if gg.isVisible(true) then 
-    XGCK = 1 
+    UI = 1 
     gg.setVisible(false) 
   end 
   gg.clearResults() 
-  if XGCK == 1 then 
+  if UI == 1 then 
     Main() 
   end 
 end
