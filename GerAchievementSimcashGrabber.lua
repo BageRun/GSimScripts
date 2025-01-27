@@ -87,7 +87,6 @@ function AchievementPilihan()
         local addressHex = string.format("%X", v.address)
 
         if is64bit then
-            -- Validasi untuk 64-bit
             if string.sub(addressHex, 1, 2) == "7F" then
                 if v.value == persyaratanAchievement then
                     table.insert(hasilPersyaratan, v)
@@ -96,7 +95,6 @@ function AchievementPilihan()
                 end
             end
         else
-            -- Validasi untuk 32-bit
             if string.match(string.sub(addressHex, 1, 1), "[789]") then
                 if v.value == persyaratanAchievement then
                     table.insert(hasilPersyaratan, v)
@@ -217,13 +215,11 @@ function AchievementPresisi()
         local addressHex = string.format("%X", v.address)
 
         if is64bit then
-            -- Validasi untuk 64-bit
             if string.sub(addressHex, 1, 2) == "7F" and v.value == persyaratanAchievement then
                 table.insert(validAddress, v)
                 table.insert(backupValues, {address = v.address, value = v.value, flags = v.flags})
             end
         else
-            -- Validasi untuk 32-bit
             if string.match(string.sub(addressHex, 1, 1), "[789]") and v.value == persyaratanAchievement then
                 table.insert(validAddress, v)
                 table.insert(backupValues, {address = v.address, value = v.value, flags = v.flags})
