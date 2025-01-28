@@ -10,9 +10,9 @@ local BoosterEnergy = {
 }
 
 local BoosterJackpot = {
-    ["Jackpot1"] = "1692935226",
-    ["Jackpot2"] = "1692935227",
-    ["Jackpot3"] = "1692935228",
+    ["Jackpot 1"] = "1692935226",
+    ["Jackpot 2"] = "1692935227",
+    ["Jackpot 3"] = "1692935228",
 }
 
 local BoosterDuD = {

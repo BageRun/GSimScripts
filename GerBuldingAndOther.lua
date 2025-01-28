@@ -220,7 +220,7 @@ function EpikMana()
         "Bangunan Epik Biasa",
         "Bangunan Epik Random",
         "Kembali"
-    }, nil, "Ini Khusus Buat Akun Baru Yaa, Kalo Bukan, Pake Pencarian Biasa / Presisi Aja.")
+    }, nil, "Epik Mana Yang Ingin Kamu Gunakan? Epik Biasa Bangunannya Tidak Random, Sebaliknya Epik Random.")
 
     if PilihAchievement == nil then
         return
