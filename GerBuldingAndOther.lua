@@ -1,544 +1,253 @@
-function Main() 
-  PilihanUtama = gg.multiChoice({ 
-  "Bangunan Biasa", 
-  "Bangunan Epic Lvl Max", 
-  "Utility", 
-  "Rumah To Epic Building", 
-  "Keluar",},nil,"Pilih Fitur Mana Yang Mau Kamu Gunakan?") 
- if PilihanUtama[1] == true then BasicBuilding() end 
- if PilihanUtama[2] == true then EpicBuilding() end 
- if PilihanUtama[3] == true then UtilityHack() end 
- if PilihanUtama[4] == true then BuildEpicBuilding() end 
- if PilihanUtama[5] == true then Keluar() end 
- UI = -1 
-end 
+local HideUI = 0
 
-function BasicBuilding() 
-  BangunanBiasa = gg.multiChoice({ 
-  "Puri Maxis [Listrik Tenaga Angin Kecil]", 
-  "Patung Walikota Terhebat [Menara Air Kecil]", 
-  "Patung Maxis Man [Pipa Pembuangan Kecil]", 
-  "Rumah Biasa Maksimal [Listrik Batu Bara]", 
-  "Rumah Tokyo Maksimal [Pipa Pembuangan Besar]", 
-  "Rumah Paris Maksimal [Pembuangan Sampah Kecil]", 
-  "Rumah London Maksimal [Pembuangan Sampah Besar]", 
-  "Rumah Neo Maksimal [Listrik Tenaga Angin Besar]", 
-  "Rumah Lembah Hijau Maksimal [Pemadam Kebakaran Kecil]", 
-  "Rumah Ngarai Kaktus Maksimal [Kantor Polisi Kecil]", 
-  "Rumah Kepulauan Cerah Maksimal [Klinik Kesehatan Kecil]", 
-  "Rumah Fyord Beku Maksimal [Taman Air Mancur Kecil]", 
-  "Rumah Tebing Batu Kapur Maksimal [Taman Seni Modern]", 
-  "Lanskap Kincir Air Tua [Taman Kolam Refleksi]", 
-  "Institut Riset Cahaya Utara L10 [Taman Damai]", 
-  "Perhentian Taksi L10 [Plaza Urban]", 
-  "Aula Mahjong L10 [Taman Kota Kasino]", 
-  "Rumah Minum Teh L10 [Pasar Ikan]", 
-  "Kembali", 
-  }, nil, "Taruh Bangunan Sigma Yang Tertera Di Scripts Dikota Kalian Sebelum MeRizz Kai Cenat, Setelah Selesai, Keluar Dari Game Ohio Dan Masuk Kembali...") 
- if BangunanBiasa[1] == true then PuriMaxis() end 
- if BangunanBiasa[2] == true then PatungWalikota() end 
- if BangunanBiasa[3] == true then MaxisMan() end 
- if BangunanBiasa[4] == true then RumahBiasa() end 
- if BangunanBiasa[5] == true then RumahTokyo() end 
- if BangunanBiasa[6] == true then RumahParis() end 
- if BangunanBiasa[7] == true then RumahLondon() end 
- if BangunanBiasa[8] == true then RumahNeo() end 
- if BangunanBiasa[9] == true then LembahHijau() end 
- if BangunanBiasa[10] == true then NgaraiKaktus() end 
- if BangunanBiasa[11] == true then PulauCerah() end 
- if BangunanBiasa[12] == true then FyordBeku() end 
- if BangunanBiasa[13] == true then BatuKapur() end 
- if BangunanBiasa[14] == true then KincirTua() end 
- if BangunanBiasa[15] == true then Pendidikan10() end 
- if BangunanBiasa[16] == true then Transportasi10() end 
- if BangunanBiasa[17] == true then Perjudian10() end 
- if BangunanBiasa[18] == true then Hiburan10() end 
- if BangunanBiasa[19] == true then Main() end 
- UI = -1 
-end 
+-- Untuk Bangunan Biasa
+function searchAndEdit(searchValue, editValue)
+    gg.clearResults()
+    gg.searchNumber(searchValue, gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
+    local results = gg.getResults(200)
+    if #results > 0 then
+        gg.editAll(editValue, gg.TYPE_DWORD)
+        gg.toast("Pergi Ke Ohio Untuk +1000 Aura Lalu Kembali Lagi Ke Kota")
+    else
+        gg.toast("Pencarian Tidak Ditemukan!")
+    end
+end
 
-function PuriMaxis() 
-  gg.clearResults() 
-  gg.searchNumber("751144117", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("751144117", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("925375395", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function PatungWalikota() 
-  gg.clearResults() 
-  gg.searchNumber("139346164", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("139346164", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("2040088750", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function MaxisMan() 
-  gg.clearResults() 
-  gg.searchNumber("182280403", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("182280403", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("-2089966647", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function RumahBiasa() 
-  gg.clearResults() 
-  gg.searchNumber("-1297331478", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("-1297331478", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("1522778650", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function RumahTokyo() 
-  gg.clearResults() 
-  gg.searchNumber("-12118437", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("-12118437", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("1493262871", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function RumahParis() 
-  gg.clearResults() 
-  gg.searchNumber("-741284489", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("-741284489", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("2050186616", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function RumahLondon() 
-  gg.clearResults() 
-  gg.searchNumber("-935683329", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("-935683329", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("-1203406301", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function RumahNeo() 
-  gg.clearResults() 
-  gg.searchNumber("43959869", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("43959869", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("-1430868908", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function LembahHijau() 
-  gg.clearResults() 
-  gg.searchNumber("583140736", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("583140736", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("973877747", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function NgaraiKaktus() 
-  gg.clearResults() 
-  gg.searchNumber("-150077002", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("-150077002", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("-1528167776", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function PulauCerah() 
-  gg.clearResults() 
-  gg.searchNumber("-66177429", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("-66177429", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("-1220248775", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function FyordBeku() 
-  gg.clearResults() 
-  gg.searchNumber("-1672104106", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("-1672104106", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("2038647854", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function BatuKapur() 
-  gg.clearResults() 
-  gg.searchNumber("712780976", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("712780976", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("-46404375", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function KincirTua() 
-  gg.clearResults() 
-  gg.searchNumber("-1250093364", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("-1250093364", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("1321420829", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function Pendidikan10() 
-  gg.clearResults() 
-  gg.searchNumber("-958560911", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("-958560911", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("-61527945", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function Transportasi10() 
-  gg.clearResults() 
-  gg.searchNumber("-958560910", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("-958560910", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("776814664", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function Perjudian10() 
-  gg.clearResults() 
-  gg.searchNumber("-383906791", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("-383906791", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("1225598517", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function Hiburan10() 
-  gg.clearResults() 
-  gg.searchNumber("-1685111278", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("-1685111278", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("-1053961458", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
+function BangunanBiasa()
+    local BiasaPilihan = gg.multiChoice({
+        "Puri Maxis [Listrik Tenaga Angin Kecil]",
+        "Patung Walikota Terhebat [Menara Air Kecil]",
+        "Patung Maxis Man [Pipa Pembuangan Kecil]",
+        "Rumah Biasa Maksimal [Listrik Batu Bara]",
+        "Rumah Tokyo Maksimal [Pipa Pembuangan Besar]",
+        "Rumah Paris Maksimal [Pembuangan Sampah Kecil]",
+        "Rumah London Maksimal [Pembuangan Sampah Besar]",
+        "Rumah Neo Maksimal [Listrik Tenaga Angin Besar]",
+        "Rumah Lembah Hijau Maksimal [Pemadam Kebakaran Kecil]",
+        "Rumah Ngarai Kaktus Maksimal [Kantor Polisi Kecil]",
+        "Rumah Kepulauan Cerah Maksimal [Klinik Kesehatan Kecil]",
+        "Rumah Fyord Beku Maksimal [Taman Air Mancur Kecil]",
+        "Rumah Tebing Batu Kapur Maksimal [Taman Seni Modern]",
+        "Lanskap Kincir Air Tua [Taman Kolam Refleksi]",
+        "Institut Riset Cahaya Utara L10 [Taman Damai]",
+        "Perhentian Taksi L10 [Plaza Urban]",
+        "Aula Mahjong L10 [Taman Kota Kasino]",
+        "Rumah Minum Teh L10 [Pasar Ikan]",
+        "Kembali"
+    }, nil, "Taruh Bangunan Sigma Yang Tertera Di Scripts Sebelum MeRizz Kai Cenat, Pastikan Tidak L By Fanum Tax")
+    
+    if BiasaPilihan[1] then searchAndEdit("751144117", "925375395") end
+    if BiasaPilihan[2] then searchAndEdit("139346164", "2040088750") end
+    if BiasaPilihan[3] then searchAndEdit("182280403", "-2089966647") end
+    if BiasaPilihan[4] then searchAndEdit("-1297331478", "1522778650") end
+    if BiasaPilihan[5] then searchAndEdit("-12118437", "1493262871") end
+    if BiasaPilihan[6] then searchAndEdit("-741284489", "2050186616") end
+    if BiasaPilihan[7] then searchAndEdit("-935683329", "-1203406301") end
+    if BiasaPilihan[8] then searchAndEdit("43959869", "-1430868908") end
+    if BiasaPilihan[9] then searchAndEdit("583140736", "973877747") end
+    if BiasaPilihan[10] then searchAndEdit("-150077002", "-1528167776") end
+    if BiasaPilihan[11] then searchAndEdit("-66177429", "-1220248775") end
+    if BiasaPilihan[12] then searchAndEdit("-1672104106", "2038647854") end
+    if BiasaPilihan[13] then searchAndEdit("712780976", "-46404375") end
+    if BiasaPilihan[14] then searchAndEdit("-1250093364", "1321420829") end
+    if BiasaPilihan[15] then searchAndEdit("-958560911", "-61527945") end
+    if BiasaPilihan[16] then searchAndEdit("-958560910", "776814664") end
+    if BiasaPilihan[17] then searchAndEdit("-383906791", "1225598517") end
+    if BiasaPilihan[18] then searchAndEdit("-1685111278", "-1053961458") end
+    if BiasaPilihan[18] then return end
+    UI = 0
+end
 
-function EpicBuilding() 
-  PilihanEpicBuilding = gg.multiChoice({ 
-  "Epik Spesialisasi Pendidikan [Pembakaran Sampah]", 
-  "Epik Spesialisasi Perjudian [Pabrik Kecil]", 
-  "Epik Spesialisasi Hiburan [Pabrik Dasar]", 
-  "Epik Spesialisasi Transportasi [Pemadam Kebakaran Dasar]", 
-  "Epik Spesialisasi Bangunan Terkenal [Kantor Polisi Dasar]", 
-  "Epik Spesialisasi Pantai [Klinik Kesehatan Dasar]", 
-  "Epik Spesialisasi Gunung [Kafetaria Taman Universitas]", 
-  "Kembali", 
-  },nil,"Taruh Bangunan Sigma Yang Tertera Di Scripts Sebelum MeRizz Kai Cenat, Pastikan Tidak L By Fanum Tax") 
- if PilihanEpicBuilding[1] == true then PendidikanEpic() end 
- if PilihanEpicBuilding[2] == true then PerjudianEpic() end 
- if PilihanEpicBuilding[3] == true then HiburanEpic() end 
- if PilihanEpicBuilding[4] == true then TransportasiEpic() end 
- if PilihanEpicBuilding[5] == true then TerkenalEpic() end 
- if PilihanEpicBuilding[6] == true then PantaiEpic() end 
- if PilihanEpicBuilding[7] == true then GunungEpic() end 
- if PilihanEpicBuilding[8] == true then Main() end 
- UI =-1 
-end 
+-- Untuk Bangunan Epik
+function searchAndEditEpik(searchValue, editValue)
+    gg.clearResults()
+    gg.searchNumber(searchValue, gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
+    local results = gg.getResults(200)
+    if #results > 0 then
+        gg.editAll(editValue, gg.TYPE_DWORD)
+        gg.toast("Pergi Ke Ohio Untuk +1000 Aura Lalu Kembali Lagi Ke Kota")
+    else
+        gg.toast("Pencarian Tidak Ditemukan!")
+    end
+end
 
-function PendidikanEpic() 
-  gg.clearResults() 
-  gg.searchNumber("-1415031897", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("-1415031897", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("-1881032548", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function PerjudianEpic() 
-  gg.clearResults() 
-  gg.searchNumber("612373322", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("612373322", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("-691412735", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function HiburanEpic() 
-  gg.clearResults() 
-  gg.searchNumber("-1199642511", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("-1199642511", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("-447372290", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function TransportasiEpic() 
-  gg.clearResults() 
-  gg.searchNumber("388741896", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("388741896", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("1813794920", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function TerkenalEpic() 
-  gg.clearResults() 
-  gg.searchNumber("-1397016258", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("-1397016258", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("-113962678", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function PantaiEpic() 
-  gg.clearResults() 
-  gg.searchNumber("1155556851", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("1155556851", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("-1999290445", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function GunungEpic() 
-  gg.clearResults() 
-  gg.searchNumber("58778652", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("58778652", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("995463179", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
+function BangunanEpik() 
+    Epik = gg.multiChoice({ 
+    "Epik Spesialisasi Pendidikan [Pembakaran Sampah]", 
+    "Epik Spesialisasi Perjudian [Pabrik Kecil]", 
+    "Epik Spesialisasi Hiburan [Pabrik Dasar]", 
+    "Epik Spesialisasi Transportasi [Pemadam Kebakaran Dasar]", 
+    "Epik Spesialisasi Bangunan Terkenal [Kantor Polisi Dasar]", 
+    "Epik Spesialisasi Pantai [Klinik Kesehatan Dasar]", 
+    "Epik Spesialisasi Gunung [Kafetaria Taman Universitas]", 
+    "Kembali", 
+    }, nil, "Taruh Bangunan Sigma Yang Tertera Di Scripts Sebelum MeRizz Kai Cenat, Pastikan Tidak L By Fanum Tax") 
+    
+    if Epik[1] then searchAndEditEpik("-1415031897", "-1881032548") end
+    if Epik[2] then searchAndEditEpik("612373322", "-691412735") end
+    if Epik[3] then searchAndEditEpik("-1199642511", "-447372290") end
+    if Epik[4] then searchAndEditEpik("388741896", "1813794920") end
+    if Epik[5] then searchAndEditEpik("-1397016258", "-113962678") end
+    if Epik[6] then searchAndEditEpik("1155556851", "-1999290445") end
+    if Epik[7] then searchAndEditEpik("58778652", "995463179") end
+    if Epik[8] then return end
+    UI = 0
+end
 
-function UtilityHack() 
-  PilihanUtilityHack = gg.multiChoice ({ 
-  "Gudang Kota Max [Gudang Kota Awal]", 
-  "Gudang Omega Max [Gudang Omega Awal]", 
-  "Neo Bank Max [Neo Bank Awal]", 
-  "Buka & Upgrade Menara Vu Level 18", 
-  "Buka Neo Mall dibawah level 30", 
-  "Tutup Neo Mall dibawah level 30", 
-  "Ganti Papan Iklan jadi Laba-laba", 
-  "Refresh Neo Mall", 
-  "Refresh waktu tunggu Projects Sigma Epic", 
-  "Back", 
-  },nil, "Fungsi Jelqing Akan Infinity Aura W's Update") 
- if PilihanUtilityHack[1] == true then GudangKotaMax() end 
- if PilihanUtilityHack[2] == true then GudangOmegaMax() end 
- if PilihanUtilityHack[3] == true then NeoBankMax() end 
- if PilihanUtilityHack[4] == true then VuTowerMax() end 
- if PilihanUtilityHack[5] == true then NeoMallOpen() end 
- if PilihanUtilityHack[6] == true then NeoMallClose() end 
- if PilihanUtilityHack[7] == true then PapanSpider() end 
- if PilihanUtilityHack[8] == true then RefreshNeoMall() end 
- if PilihanUtilityHack[9] == true then RefreshEpic24Jam() end 
- if PilihanUtilityHack[10] == true then Main() end 
- UI =-1 
-end 
+-- Untuk Utilitas
+function EditUtilitas(searchValue, editValue)
+    gg.clearResults()
+    gg.searchNumber(searchValue, gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
+    local results = gg.getResults(200)
+    if #results > 0 then
+        gg.editAll(editValue, gg.TYPE_DWORD)
+        gg.toast("Pergi Ke Ohio Untuk +1000 Aura Lalu Kembali Lagi Ke Kota")
+    else
+        gg.toast("Pencarian Tidak Ditemukan!")
+    end
+end
 
-function GudangKotaMax() 
-  gg.clearResults() 
-  gg.searchNumber("1785034572", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("1785034572", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("-1223401048", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function GudangOmegaMax() 
-  gg.clearResults() 
-  gg.searchNumber("-5428496", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("-5428496", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("-179140214", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function NeoBankMax() 
-  gg.clearResults() 
-  gg.searchNumber("1148880551", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("1148880551", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("-741647391", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function VuTowerMax() 
-  gg.clearResults() 
-  gg.searchNumber("2019791904", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("2019791904", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("1362697172", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function NeoMallOpen() 
-  gg.clearResults() 
-  gg.searchNumber("424671600", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("424671600", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("2087261488", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function NeoMallClose() 
-  gg.clearResults() 
-  gg.searchNumber("2087261488", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("2087261488", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("424671600", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function PapanSpider() 
-  gg.clearResults() 
-  gg.searchNumber("49899925", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("49899925", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("-1323273224", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function RefreshNeoMall() 
-  gg.clearResults() 
-  gg.searchNumber("21600000", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("21600000", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("0", gg.TYPE_DWORD) 
-  gg.toast("Berhasil Direset...") 
-end 
-function RefreshEpic24Jam() 
-  gg.clearResults() 
-  gg.searchNumber("43200000", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("43200000", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("0", gg.TYPE_DWORD) 
-  gg.clearResults() 
-  gg.searchNumber("43500000", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("43500000", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.getResults(200) 
-  gg.editAll("0", gg.TYPE_DWORD) 
-  gg.toast("Berhasil Direset...") 
-end 
+function Utilitas() 
+    Utility = gg.multiChoice({ 
+    "Gudang Kota Max [Gudang Kota Awal]", 
+    "Gudang Omega Max [Gudang Omega Awal]", 
+    "Neo Bank Max [Neo Bank Awal]", 
+    "Buka & Upgrade Menara Vu Level 18", 
+    "Buka Neo Mall dibawah level 30", 
+    "Tutup Neo Mall dibawah level 30", 
+    "Ganti Papan Iklan jadi Laba-laba", 
+    "Refresh Neo Mall", 
+    "Refresh waktu tunggu Projects Sigma Epic", 
+    "Kembali", 
+    }, nil, "Fungsi Jelqing Akan Infinity Aura W's Update") 
+    
+    if Utility[1] then EditUtilitas("1785034572", "-1223401048") end
+    if Utility[2] then EditUtilitas("-5428496", "-179140214") end
+    if Utility[3] then EditUtilitas("1148880551", "-741647391") end
+    if Utility[4] then EditUtilitas("2019791904", "1362697172") end
+    if Utility[5] then EditUtilitas("424671600", "2087261488") end
+    if Utility[6] then EditUtilitas("2087261488", "424671600") end
+    if Utility[7] then EditUtilitas("49899925", "-1323273224") end
+    if Utility[8] then EditUtilitas("21600000", "0") end
+    if Utility[9] then EditUtilitas("43200000", "0") end
+    if Utility[10] then return end
+    UI = 0
+end
 
-function BuildEpicBuilding() 
-  PilihanRumahToEpicBuilding = gg.multiChoice ({ 
-  "Fast Epic Pendidikan [Bangun Area Rumah Biasa]", 
-  "CLEAR EPIC Pendidikan", 
-  "Fast Epic Perjudian [Bangun Area Rumah Biasa]", 
-  "CLEAR EPIC Perjudian", 
-  "Fast Epic Hiburan [Bangun Area Rumah Biasa]", 
-  "CLEAR EPIC Hiburan", 
-  "Fast Epic Transportasi [Bangun Area Rumah Biasa]", 
-  "CLEAR EPIC Transportasi", 
-  "Fast Epic Bangunan Terkenal [Bangun Area Rumah Biasa]", 
-  "CLEAR EPIC Bangunan Terkenal", 
-  "Fast Epic Pantai [Bangun Area Rumah Biasa]", 
-  "CLEAR EPIC Pantai", 
-  "Fast Epic Gunung [Bangun Area Rumah Biasa]", 
-  "CLEAR EPIC Gunung", 
-  "Kembali", 
-  },nil, "Setiap Gen Z Mengganti Mewing Streak Fast Epic, Gooning CLEAR EPIC Agar W's Milkshake") 
- if PilihanRumahToEpicBuilding[1] == true then FastEpicPendidikan() end 
- if PilihanRumahToEpicBuilding[2] == true then ClearEpicPendidikan() end 
- if PilihanRumahToEpicBuilding[3] == true then FastEpicJudi() end 
- if PilihanRumahToEpicBuilding[4] == true then ClearEpicJudi() end 
- if PilihanRumahToEpicBuilding[5] == true then FastEpicHiburan() end 
- if PilihanRumahToEpicBuilding[6] == true then ClearEpicHiburan() end 
- if PilihanRumahToEpicBuilding[7] == true then FastEpicTransportasi() end 
- if PilihanRumahToEpicBuilding[8] == true then CLearEpicTransportasi() end 
- if PilihanRumahToEpicBuilding[9] == true then FastEpicTerkenal() end 
- if PilihanRumahToEpicBuilding[10] == true then ClearEpicTerkenal() end 
- if PilihanRumahToEpicBuilding[11] == true then FastEpicPantai() end 
- if PilihanRumahToEpicBuilding[12] == true then ClearEpicPantai() end 
- if PilihanRumahToEpicBuilding[13] == true then FastEpicGunung() end 
- if PilihanRumahToEpicBuilding[14] == true then ClearEpicGunung() end 
- if PilihanRumahToEpicBuilding[15] == true then Main() end 
- UI =-1 
-end 
+function EpikAcak() 
+    BD = gg.multiChoice({ 
+        "Fast Epic Pendidikan [Bangun Area Rumah Biasa]", 
+        "CLEAR EPIC Pendidikan", 
+        "Fast Epic Perjudian [Bangun Area Rumah Biasa]", 
+        "CLEAR EPIC Perjudian", 
+        "Fast Epic Hiburan [Bangun Area Rumah Biasa]", 
+        "CLEAR EPIC Hiburan", 
+        "Fast Epic Transportasi [Bangun Area Rumah Biasa]", 
+        "CLEAR EPIC Transportasi", 
+        "Fast Epic Bangunan Terkenal [Bangun Area Rumah Biasa]", 
+        "CLEAR EPIC Bangunan Terkenal", 
+        "Fast Epic Pantai [Bangun Area Rumah Biasa]", 
+        "CLEAR EPIC Pantai", 
+        "Fast Epic Gunung [Bangun Area Rumah Biasa]", 
+        "CLEAR EPIC Gunung", 
+        "Kembali", 
+    }, nil, "Setiap Gen Z Mengganti Mewing Streak Fast Epic, Gooning CLEAR EPIC Agar W's Milkshake") 
 
-function FastEpicPendidikan() 
-  gg.clearResults() 
-  gg.searchNumber("1522778645", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("1522778645", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  revert = gg.getResults(200, nil, nil, nil, nil, nil, nil, nil, nil) 
-  gg.editAll("-1881032548", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function ClearEpicPendidikan() 
-  gg.clearResults() 
-  gg.searchNumber("-1881032548", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("-1881032548", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  if revert ~= nil then gg.setValues(revert) end 
-  gg.toast("Berhasil Direset...") 
-end 
-function FastEpicJudi() 
-  gg.clearResults() 
-  gg.searchNumber("1522778645", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("1522778645", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  revert = gg.getResults(200, nil, nil, nil, nil, nil, nil, nil, nil) 
-  gg.editAll("-691412735", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function ClearEpicJudi() 
-  gg.clearResults() 
-  gg.searchNumber("-691412735", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("-691412735", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  if revert ~= nil then gg.setValues(revert) end 
-  gg.toast("Berhasil Direset...") 
-end 
-function FastEpicHiburan() 
-  gg.clearResults() 
-  gg.searchNumber("1522778645", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("1522778645", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  revert = gg.getResults(200, nil, nil, nil, nil, nil, nil, nil, nil) 
-  gg.editAll("-447372290", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function ClearEpicHiburan() 
-  gg.clearResults() 
-  gg.searchNumber("-447372290", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("-447372290", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  if revert ~= nil then gg.setValues(revert) end 
-  gg.toast("Berhasil Direset...") 
-end 
-function FastEpicTransportasi() 
-  gg.clearResults() 
-  gg.searchNumber("1522778645", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("1522778645", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  revert = gg.getResults(200, nil, nil, nil, nil, nil, nil, nil, nil) 
-  gg.editAll("1813794920", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function CLearEpicTransportasi() 
-  gg.clearResults() 
-  gg.searchNumber("1813794920", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("1813794920", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  if revert ~= nil then gg.setValues(revert) end 
-  gg.toast("Berhasil Direset...") 
-end 
-function FastEpicTerkenal() 
-  gg.clearResults() 
-  gg.searchNumber("1522778645", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("1522778645", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  revert = gg.getResults(200, nil, nil, nil, nil, nil, nil, nil, nil) 
-  gg.editAll("-113962678", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function ClearEpicTerkenal() 
-  gg.clearResults() 
-  gg.searchNumber("-113962678", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("-113962678", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  if revert ~= nil then gg.setValues(revert) end 
-  gg.toast("Berhasil Direset...") 
-end 
-function FastEpicPantai() 
-  gg.clearResults() 
-  gg.searchNumber("1522778645", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("1522778645", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  revert = gg.getResults(200, nil, nil, nil, nil, nil, nil, nil, nil) 
-  gg.editAll("-1999290445", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function ClearEpicPantai() 
-  gg.clearResults() 
-  gg.searchNumber("-1999290445", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("-1999290445", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  if revert ~= nil then gg.setValues(revert) end 
-  gg.toast("Berhasil Direset...") 
-end 
-function FastEpicGunung() 
-  gg.clearResults() 
-  gg.searchNumber("1522778645", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("1522778645", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  revert = gg.getResults(200, nil, nil, nil, nil, nil, nil, nil, nil) 
-  gg.editAll("995463179", gg.TYPE_DWORD) 
-  gg.toast("Keluar Dari Game, Lalu Masuk Lagi...") 
-end 
-function ClearEpicGunung() 
-  gg.clearResults() 
-  gg.searchNumber("995463179", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  gg.searchNumber("995463179", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1) 
-  if revert ~= nil then gg.setValues(revert) end 
-  gg.toast("Berhasil Direset...") 
-end 
+    if BD[1] then searchandeditfastepik(1522778645, -1881032548) end 
+    if BD[2] then searchandeditfastepik(-1881032548, nil, true) end 
+    if BD[3] then searchandeditfastepik(1522778645, -691412735) end 
+    if BD[4] then searchandeditfastepik(-691412735, nil, true) end 
+    if BD[5] then searchandeditfastepik(1522778645, -447372290) end 
+    if BD[6] then searchandeditfastepik(-447372290, nil, true) end 
+    if BD[7] then searchandeditfastepik(1522778645, 1813794920) end 
+    if BD[8] then searchandeditfastepik(1813794920, nil, true) end 
+    if BD[9] then searchandeditfastepik(1522778645, -113962678) end 
+    if BD[10] then searchandeditfastepik(-113962678, nil, true) end 
+    if BD[11] then searchandeditfastepik(1522778645, -1999290445) end 
+    if BD[12] then searchandeditfastepik(-1999290445, nil, true) end 
+    if BD[13] then searchandeditfastepik(1522778645, 995463179) end 
+    if BD[14] then searchandeditfastepik(995463179, nil, true) end 
+    if BD[15] then return end
+    UI = 0
+end
+
+-- Untuk Epic Acak
+function searchandeditfastepik(searchVal, editVal, isRevert)
+    gg.clearResults()
+    gg.searchNumber(tostring(searchVal), gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
+    local results = gg.getResults(200)
+
+    if editVal then 
+        gg.editAll(tostring(editVal), gg.TYPE_DWORD)
+        gg.toast("Pergi Ke Ohio Untuk +1000 Aura Lalu Kembali Lagi Ke Kota")
+    elseif isRevert then
+        if results and #results > 0 then
+            gg.setValues(results)
+            gg.toast("Berhasil Direset")
+            MenuUtama()
+        else
+            gg.toast("Tidak ada hasil yang ditemukan untuk revert!")
+            MenuUtama()
+        end
+    end
+end
+
+function MenuUtama()
+    local pilihan = gg.choice({
+        "Bangunan Biasa",
+        "Bangunan Epik",
+        "Utilitas",
+        "Keluar"
+    }, nil, "Fitur Mana Yang Ingin Kamu Gunakan?")
+
+    if pilihan == nil then
+        return
+    end
+
+    if pilihan == 1 then
+        BangunanBiasa()
+    elseif pilihan == 2 then
+        EpikMana()
+    elseif pilihan == 3 then
+        Utilitas()
+    elseif pilihan == 4 then
+        Keluar()
+    end
+end
+
+function EpikMana()
+    local PilihAchievement = gg.choice({
+        "Bangunan Epik Biasa",
+        "Bangunan Epik Random",
+        "Kembali"
+    }, nil, "Ini Khusus Buat Akun Baru Yaa, Kalo Bukan, Pake Pencarian Biasa / Presisi Aja.")
+
+    if PilihAchievement == nil then
+        return
+    end
+
+    if PilihAchievement == 1 then
+        BangunanEpik()
+    elseif PilihAchievement == 2 then
+        EpikAcak()
+    elseif PilihAchievement == 3 then
+        return
+    end
+end
 
 function Keluar() 
-  gg.alert("Apa Yang Dicari Orang Sigma? Bintang Skibidi, P Diddy Ahh Mango Still Water Balkan Rage In Ohio Pay With Aura, By BageRun") 
-  os.exit() 
-end 
-cs = "23333" 
+    gg.toast("Apa Yang Dicari Orang Sigma? Bintang Skibidi, P Diddy Ahh Mango Still Water Balkan Rage In Ohio Pay With Aura") 
+    os.exit()
+end
+
 while true do 
-  if gg.isVisible(true) then 
-    UI = 1 
-    gg.setVisible(false) 
-  end 
-  gg.clearResults() 
-  if UI == 1 then 
-    Main() 
-  end 
+    if gg.isVisible(true) then 
+        HideUI = 1 
+        gg.setVisible(false) 
+    end
+
+    if HideUI == 1 then
+        MenuUtama()
+        HideUI = 0
+    end
 end
