@@ -64,7 +64,6 @@ function searchAndEdit(searchValue, editValue)
     if #results > 0 then
         gg.editAll(editValue, gg.TYPE_DWORD)
         gg.toast("Pergi Ke Ohio Untuk +1000 Aura Lalu Kembali Lagi Ke Kota")
-        LoopUtama()
     else
         gg.toast("Pencarian Tidak Ditemukan!")
     end
@@ -124,7 +123,6 @@ function searchAndEditEpik(searchValue, editValue)
     if #results > 0 then
         gg.editAll(editValue, gg.TYPE_DWORD)
         gg.toast("Pergi Ke Ohio Untuk +1000 Aura Lalu Kembali Lagi Ke Kota")
-        LoopUtama()
     else
         gg.toast("Pencarian Tidak Ditemukan!")
     end
@@ -160,7 +158,6 @@ function EditUtilitas(searchValue, editValue)
     if #results > 0 then
         gg.editAll(editValue, gg.TYPE_DWORD)
         gg.toast("Pergi Ke Ohio Untuk +1000 Aura Lalu Kembali Lagi Ke Kota")
-        LoopUtama()
     else
         gg.toast("Pencarian Tidak Ditemukan!")
     end
@@ -237,12 +234,10 @@ function searchandeditfastepik(searchVal, editVal, isRevert)
     if editVal then 
         gg.editAll(tostring(editVal), gg.TYPE_DWORD)
         gg.toast("Pergi Ke Ohio Untuk +1000 Aura Lalu Kembali Lagi Ke Kota")
-        LoopUtama()
     elseif isRevert then
         if results and #results > 0 then
             gg.setValues(results)
             gg.toast("Berhasil Direset")
-            MenuUtama()
         else
             gg.toast("Tidak ada hasil yang ditemukan untuk revert!")
             MenuUtama()
