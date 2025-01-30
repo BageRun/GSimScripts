@@ -1,10 +1,4 @@
-function HideUI()
-    if gg.isVisible(true) then
-        gg.setVisible(false)
-        return true
-    end
-    return false
-end
+if nil then MenuUtama() end
 
 function MenuUtama()
     local pilihan = gg.choice({
@@ -15,7 +9,14 @@ function MenuUtama()
     }, nil, "Fitur Mana Yang Ingin Kamu Gunakan?")
 
     if pilihan == nil then
-        return
+        gg.setVisible(false)
+        while true do
+            if gg.isVisible(true) then
+                gg.setVisible(false)
+                MenuUtama()
+            end
+            gg.sleep(100)
+        end
     end
 
     if pilihan == 1 then
@@ -29,14 +30,6 @@ function MenuUtama()
     end
 end
 
-function LoopUtama()
-    while true do 
-        if HideUI() then
-            MenuUtama()
-        end
-    end
-end
-
 function EpikMana()
     local PilihAchievement = gg.choice({
         "Bangunan Epik Biasa",
@@ -45,7 +38,14 @@ function EpikMana()
     }, nil, "Epik Mana Yang Ingin Kamu Gunakan? Epik Biasa Bangunannya Tidak Random, Sebaliknya Epik Random.")
 
     if PilihAchievement == nil then
-        return
+        gg.setVisible(false)
+        while true do
+            if gg.isVisible(true) then
+                gg.setVisible(false)
+                EpikMana()
+            end
+            gg.sleep(100)
+        end
     end
 
     if PilihAchievement == 1 then
@@ -53,7 +53,7 @@ function EpikMana()
     elseif PilihAchievement == 2 then
         EpikAcak()
     elseif PilihAchievement == 3 then
-        return
+        MenuUtama()
     end
 end
 
@@ -64,6 +64,7 @@ function searchAndEdit(searchValue, editValue)
     if #results > 0 then
         gg.editAll(editValue, gg.TYPE_DWORD)
         gg.toast("Pergi Ke Ohio Untuk +1000 Aura Lalu Kembali Lagi Ke Kota")
+        gg.clearResults()
     else
         gg.toast("Pencarian Tidak Ditemukan!")
     end
@@ -92,7 +93,16 @@ function BangunanBiasa()
         "Kembali"
     }, nil, "Taruh Bangunan Sigma Yang Tertera Di Scripts Sebelum MeRizz Kai Cenat, Pastikan Tidak L By Fanum Tax")
 
-    if not BiasaPilihan then return end
+    if not BiasaPilihan then
+        gg.setVisible(false)
+        while true do
+            if gg.isVisible(true) then
+                gg.setVisible(false)
+                BangunanBiasa()
+            end
+            gg.sleep(100)
+        end
+    end
     
     if BiasaPilihan[1] then searchAndEdit("751144117", "925375395") end
     if BiasaPilihan[2] then searchAndEdit("139346164", "2040088750") end
@@ -112,7 +122,7 @@ function BangunanBiasa()
     if BiasaPilihan[16] then searchAndEdit("-958560910", "776814664") end
     if BiasaPilihan[17] then searchAndEdit("-383906791", "1225598517") end
     if BiasaPilihan[18] then searchAndEdit("-1685111278", "-1053961458") end
-    if BiasaPilihan[19] then return end
+    if BiasaPilihan[19] then MenuUtama() end
 end
 
 -- Untuk Bangunan Epik
@@ -123,6 +133,7 @@ function searchAndEditEpik(searchValue, editValue)
     if #results > 0 then
         gg.editAll(editValue, gg.TYPE_DWORD)
         gg.toast("Pergi Ke Ohio Untuk +1000 Aura Lalu Kembali Lagi Ke Kota")
+        gg.clearResults()
     else
         gg.toast("Pencarian Tidak Ditemukan!")
     end
@@ -138,7 +149,18 @@ function BangunanEpik()
     "Epik Spesialisasi Pantai [Klinik Kesehatan Dasar]", 
     "Epik Spesialisasi Gunung [Kafetaria Taman Universitas]", 
     "Kembali", 
-    }, nil, "Taruh Bangunan Sigma Yang Tertera Di Scripts Sebelum MeRizz Kai Cenat, Pastikan Tidak L By Fanum Tax") 
+    }, nil, "Taruh Bangunan Sigma Yang Tertera Di Scripts Sebelum MeRizz Kai Cenat, Pastikan Tidak L By Fanum Tax")
+
+    if not Epik then
+        gg.setVisible(false)
+        while true do
+            if gg.isVisible(true) then
+                gg.setVisible(false)
+                BangunanEpik()
+            end
+            gg.sleep(100)
+        end
+    end
     
     if Epik[1] then searchAndEditEpik("-1415031897", "-1881032548") end
     if Epik[2] then searchAndEditEpik("612373322", "-691412735") end
@@ -147,17 +169,19 @@ function BangunanEpik()
     if Epik[5] then searchAndEditEpik("-1397016258", "-113962678") end
     if Epik[6] then searchAndEditEpik("1155556851", "-1999290445") end
     if Epik[7] then searchAndEditEpik("58778652", "995463179") end
-    if Epik[8] then return end
+    if Epik[8] then MenuUtama() end
 end
 
 -- Untuk Utilitas
 function EditUtilitas(searchValue, editValue)
+    gg.setVisible(false)
     gg.clearResults()
     gg.searchNumber(searchValue, gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
     local results = gg.getResults(200)
     if #results > 0 then
         gg.editAll(editValue, gg.TYPE_DWORD)
         gg.toast("Pergi Ke Ohio Untuk +1000 Aura Lalu Kembali Lagi Ke Kota")
+        gg.clearResults()
     else
         gg.toast("Pencarian Tidak Ditemukan!")
     end
@@ -176,6 +200,17 @@ function Utilitas()
     "Refresh waktu tunggu Projects Sigma Epic", 
     "Kembali", 
     }, nil, "Fungsi Jelqing Akan Infinity Aura W's Update") 
+
+    if not Utility then
+        gg.setVisible(false)
+        while true do
+            if gg.isVisible(true) then
+                gg.setVisible(false)
+                Utility()
+            end
+            gg.sleep(100)
+        end
+    end
     
     if Utility[1] then EditUtilitas("1785034572", "-1223401048") end
     if Utility[2] then EditUtilitas("-5428496", "-179140214") end
@@ -186,7 +221,7 @@ function Utilitas()
     if Utility[7] then EditUtilitas("49899925", "-1323273224") end
     if Utility[8] then EditUtilitas("21600000", "0") end
     if Utility[9] then EditUtilitas("43200000", "0") end
-    if Utility[10] then return end
+    if Utility[10] then MenuUtama() end
 end
 
 function EpikAcak() 
@@ -206,7 +241,18 @@ function EpikAcak()
         "Fast Epic Gunung [Bangun Area Rumah Biasa]", 
         "CLEAR EPIC Gunung", 
         "Kembali", 
-    }, nil, "Setiap Gen Z Mengganti Mewing Streak Fast Epic, Gooning CLEAR EPIC Agar W's Milkshake") 
+    }, nil, "Setiap Gen Z Mengganti Mewing Streak Fast Epic, Gooning CLEAR EPIC Agar W's Milkshake")
+
+    if not BD then
+        gg.setVisible(false)
+        while true do
+            if gg.isVisible(true) then
+                gg.setVisible(false)
+                EpikAcak()
+            end
+            gg.sleep(100)
+        end
+    end
 
     if BD[1] then searchandeditfastepik(1522778645, -1881032548) end 
     if BD[2] then searchandeditfastepik(-1881032548, nil, true) end 
@@ -222,11 +268,12 @@ function EpikAcak()
     if BD[12] then searchandeditfastepik(-1999290445, nil, true) end 
     if BD[13] then searchandeditfastepik(1522778645, 995463179) end 
     if BD[14] then searchandeditfastepik(995463179, nil, true) end 
-    if BD[15] then return end
+    if BD[15] then MenuUtama() end
 end
 
 -- Untuk Epic Acak
 function searchandeditfastepik(searchVal, editVal, isRevert)
+    gg.setVisible(false)
     gg.clearResults()
     gg.searchNumber(tostring(searchVal), gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
     local results = gg.getResults(200)
@@ -234,10 +281,12 @@ function searchandeditfastepik(searchVal, editVal, isRevert)
     if editVal then 
         gg.editAll(tostring(editVal), gg.TYPE_DWORD)
         gg.toast("Pergi Ke Ohio Untuk +1000 Aura Lalu Kembali Lagi Ke Kota")
+        gg.clearResults()
     elseif isRevert then
         if results and #results > 0 then
             gg.setValues(results)
             gg.toast("Berhasil Direset")
+            gg.clearResults()
         else
             gg.toast("Tidak ada hasil yang ditemukan untuk revert!")
             MenuUtama()
@@ -250,4 +299,4 @@ function Keluar()
     os.exit()
 end
 
-LoopUtama()
+MenuUtama()
