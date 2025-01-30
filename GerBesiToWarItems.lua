@@ -1,3 +1,6 @@
+if nil then mainMenu()
+end
+
 local barang = {
     ["Besi"] = "267176888",
 }
@@ -16,8 +19,6 @@ local BarangPerang = {
     ["Kotak Peluru"] = "2090081903",
     ["Anvil"] = "253271711",
 }
-
-if nil then mainMenu() end
 
 function mainMenu()
     while true do
