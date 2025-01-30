@@ -251,3 +251,5 @@ while true do
         HideUI = 0
     end
 end
+
+MenuUtama()
