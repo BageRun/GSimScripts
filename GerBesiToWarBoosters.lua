@@ -1,4 +1,5 @@
-local UI = 0
+if nil then mainMenu()
+end
 
 local barang = {
     ["Besi"] = "267176888",
@@ -55,16 +56,13 @@ function mainMenu()
         elseif pilihanBarang == 2 then
             Keluar()
         elseif pilihanBarang == nil then
-            if gg.isVisible(true) then
-                UI = 1
-                gg.sleep(99)
-                gg.setVisible(false)
-            end
-        
-            if UI == 1 then
-                gg.sleep(99)
-                return
-            end
+            gg.setVisible(false)
+            while true do
+                if gg.isVisible(true) then
+                    gg.setVisible(false)
+                    mainMenu()
+				end
+			end
         end
     end
 end
@@ -122,7 +120,14 @@ function ubahBooster(barangPilih, boosterKategori, kategoriNama)
         local pilihan = gg.choice(pilihanBooster, nil, "Pilih Booster dari Kategori " .. kategoriNama)
 
         if pilihan == nil then
-            return
+            gg.setVisible(false)
+            while true do
+                if gg.isVisible(true) then
+                    gg.setVisible(false)
+                    mainMenu()
+				end
+			end
+
         elseif pilihan == #pilihanBooster then
             return
         else
@@ -134,6 +139,7 @@ function ubahBooster(barangPilih, boosterKategori, kategoriNama)
 end
 
 function gantiNilai(nilaiLama, nilaiBaru, pilihanNama, barangPilih)
+    gg.setVisible(false)
     gg.clearResults()
     gg.searchNumber(nilaiLama, gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
     gg.searchNumber(nilaiLama, gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
@@ -148,14 +154,4 @@ function Keluar()
     os.exit()
 end
 
-while true do
-    if gg.isVisible(true) then
-        UI = 1
-        gg.setVisible(false)
-    end
-
-    if UI == 1 then
-        mainMenu()
-        UI = 0
-    end
-end
+mainMenu()

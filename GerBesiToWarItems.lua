@@ -59,9 +59,9 @@ function ubahBarang(barangPilih)
                 if gg.isVisible(true) then
                     gg.setVisible(false)
                     mainMenu()
-                end
-            end
-        end
+				end
+			end
+
         elseif pilihan == #pilihanBarangPerang then
             return
         else
@@ -73,6 +73,7 @@ function ubahBarang(barangPilih)
 end
 
 function gantiNilai(nilaiLama, nilaiBaru, pilihanNama, barangPilih)
+	gg.setVisible(false)
     gg.clearResults()
     gg.searchNumber(nilaiLama, gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
     gg.searchNumber(nilaiLama, gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
