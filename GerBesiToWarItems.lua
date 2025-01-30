@@ -85,3 +85,5 @@ function Keluar()
     gg.toast("Script Keluar, Skibidi BageRun Sigma King Mewing")
     os.exit()
 end
+
+mainMenu()
