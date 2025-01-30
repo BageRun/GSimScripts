@@ -1,5 +1,3 @@
-local UI = 0
-
 local barang = {
     ["Besi"] = "267176888",
 }
@@ -19,6 +17,8 @@ local BarangPerang = {
     ["Anvil"] = "253271711",
 }
 
+if nil then mainMenu() end
+
 function mainMenu()
     while true do
         local pilihanBarang = gg.choice({
@@ -31,13 +31,12 @@ function mainMenu()
         elseif pilihanBarang == 2 then
             Keluar()
         elseif pilihanBarang == nil then
-            if gg.isVisible(true) then
-                UI = 1
-                gg.setVisible(false)
-            end
-        
-            if UI == 1 then
-                return
+            gg.setVisible(false)
+            while true do
+                if gg.isVisible(true) then
+                    gg.setVisible(false)
+                    mainMenu()
+                end
             end
         end
     end
@@ -54,7 +53,14 @@ function ubahBarang(barangPilih)
         local pilihan = gg.choice(pilihanBarangPerang, nil, "Pilih Barang Perang untuk " .. barangPilih)
 
         if pilihan == nil then
-            return
+            gg.setVisible(false)
+            while true do
+                if gg.isVisible(true) then
+                    gg.setVisible(false)
+                    mainMenu()
+                end
+            end
+        end
         elseif pilihan == #pilihanBarangPerang then
             return
         else
@@ -73,22 +79,9 @@ function gantiNilai(nilaiLama, nilaiBaru, pilihanNama, barangPilih)
     gg.editAll(nilaiBaru, gg.TYPE_DWORD)
     gg.toast("Sip, " .. barangPilih .. "nya Udah Diubah Jadi " .. pilihanNama .. " Yaa, Sekarang Keluar Dari Game, Lalu Masuk Lagi...")
     gg.clearResults()
-    mainMenu()
 end
 
 function Keluar()
     gg.toast("Script Keluar, Skibidi BageRun Sigma King Mewing")
     os.exit()
-end
-
-while true do
-    if gg.isVisible(true) then
-        UI = 1
-        gg.setVisible(false)
-    end
-
-    if UI == 1 then
-        mainMenu()
-        UI = 0
-    end
 end
