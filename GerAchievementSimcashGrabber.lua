@@ -1,4 +1,62 @@
-local Gerjalan = 0
+if nil then
+    gg.clearResults()
+    MenuUtama()
+end
+
+function MenuUtama()
+    gg.setVisible(false)
+    local pilihan = gg.choice({
+        "Pencarian Biasa",
+        "Pencarian Presisi",
+        "Lainnya",
+        "Keluar"
+    }, nil, "Pilih Opsi Pencarian Achievement... (Gunakan Pencarian Presisi Jika Nominalnya Sedikit (Misal 3000 Sims, 2 Simcash.)")
+
+    if pilihan == nil then
+        gg.setVisible(false)
+		while true do
+			if gg.isVisible(true) then
+				gg.setVisible(false)
+				MenuUtama()
+				break
+			end
+			gg.sleep(99)
+        end
+    end
+
+    if pilihan == 1 then
+        AchievementPilihan()
+    elseif pilihan == 2 then
+        AchievementPresisi()
+    elseif pilihan == 3 then
+        AkunBaru49K()
+    elseif pilihan == 4 then
+        Keluar()
+    end
+end
+
+function AkunBaru49K()
+    local PilihAchievement = gg.choice({
+        "Akun Baru",
+        "Kembali"
+    }, nil, "Ini Khusus Buat Akun Baru Yaa, Kalo Bukan, Pake Pencarian Biasa / Presisi Aja.")
+
+    if PilihAchievement == nil then
+        gg.setVisible(false)
+		while true do
+			if gg.isVisible(true) then
+				gg.setVisible(false)
+				AkunBaru49K()
+            end
+        end
+    end
+
+    if PilihAchievement == 1 then
+        AkuNew49K()
+    elseif PilihAchievement == 2 then
+        MenuUtama()
+    end
+end
 
 function AkuNew49K()
     gg.setVisible(false)
@@ -39,8 +97,6 @@ function AkuNew49K()
 end
 
 function AchievementPilihan()
-    local Gerjalan = 0
-
     local input = gg.prompt(
         {
             "Masukkan Angka Persyaratan Achievement...",
@@ -58,7 +114,13 @@ function AchievementPilihan()
     )
 
     if input == nil then
-        MenuUtama()
+        gg.setVisible(false)
+		while true do
+			if gg.isVisible(true) then
+				gg.setVisible(false)
+				MenuUtama()
+            end
+        end
     end
 
     local persyaratanAchievement = tonumber(input[1])
@@ -132,12 +194,11 @@ function AchievementPilihan()
         return
     end
 
-    Gerjalan = 1
-
-    while true do
-        if Gerjalan == 1 and gg.isVisible(true) then
-            gg.setVisible(false)
-            local resetPrompt = gg.choice(
+    gg.setVisible(false)
+		while true do
+            if gg.isVisible(true) then
+                gg.setVisible(false)
+                local resetPrompt = gg.choice(
                 {"Reset Achievement", "Simpan Achievement"},
                 nil,
                 "Pilih Reset Agar Achievement Nya Kembali Seperti Semula..."
@@ -154,7 +215,7 @@ function AchievementPilihan()
                     gg.toast("Hadiah Simcash Direset...")
                 end
 
-                gg.alert("Semuanya Sudah Direset...")
+                gg.toast("Semuanya Sudah Direset...")
                 break
             elseif resetPrompt == 2 then
                 gg.toast("Achievement Tidak Direset, Selesai...")
@@ -181,7 +242,15 @@ function AchievementPresisi()
     )
 
     if input == nil then
-        MenuUtama()
+        gg.setVisible(false)
+		while true do
+			if gg.isVisible(true) then
+				gg.setVisible(false)
+				MenuUtama()
+				break
+			end
+			gg.sleep(500)
+        end
     end
 
     local persyaratanAchievement = tonumber(input[1])
@@ -239,6 +308,7 @@ function AchievementPresisi()
             end
         end
         gg.alert("Hadiah Simcash Udah Diubah Jadi " .. jumlahSimcashDiinginkan .. ", Cek Ke Mansion Yaa...")
+        MenuUtama()
     else
         gg.toast("Address Hadiah Gak Valid...")
     end
@@ -251,54 +321,4 @@ function Keluar()
     os.exit()
 end
 
-function MenuUtama()
-    local pilihan = gg.choice({
-        "Pencarian Biasa",
-        "Pencarian Presisi",
-        "Lainnya",
-        "Keluar"
-    }, nil, "Pilih Opsi Pencarian Achievement... (Gunakan Pencarian Presisi Jika Nominalnya Sedikit (Misal 3000 Sims, 2 Simcash.)")
-
-    if pilihan == nil then
-        return
-    end
-
-    if pilihan == 1 then
-        AchievementPilihan()
-    elseif pilihan == 2 then
-        AchievementPresisi()
-    elseif pilihan == 3 then
-        AkunBaru49K()
-    elseif pilihan == 4 then
-        Keluar()
-    end
-end
-
-function AkunBaru49K()
-    local PilihAchievement = gg.choice({
-        "Akun Baru",
-        "Kembali"
-    }, nil, "Ini Khusus Buat Akun Baru Yaa, Kalo Bukan, Pake Pencarian Biasa / Presisi Aja.")
-
-    if PilihAchievement == nil then
-        return
-    end
-
-    if PilihAchievement == 1 then
-        AkuNew49K()
-    elseif PilihAchievement == 2 then
-        MenuUtama()
-    end
-end
-
-while true do 
-    if gg.isVisible(true) then 
-        Gerjalan = 1 
-        gg.setVisible(false) 
-    end
-
-    if Gerjalan == 1 then
-        MenuUtama()
-        Gerjalan = 0
-    end
-end
+MenuUtama()

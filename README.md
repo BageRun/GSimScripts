@@ -3,4 +3,4 @@
 # GSimScripts
 GSim, Scripts Game Simcity Buildit Mobile
 
-Yap, Scripts Simcity Buildit Bakal Gua Taruh Disini Semua, Privat Biar Gak Dimaling Bjir, Dah Itu Aja, Siapa Tau Ntar Di Set Ke Public Lagi.
+Yap, Scripts Simcity Buildit Bakal Gua Taruh Disini Semua, Pake Aja, Jangan Diganti Ganti Ntar Rusak.

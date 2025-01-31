@@ -163,3 +163,5 @@ while true do
         UI = 0
     end
 end
+
+mainMenu()

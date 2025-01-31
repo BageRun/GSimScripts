@@ -87,7 +87,7 @@ function NoBaper()
             ResetBaper()
             break
         end
-        gg.sleep(500)
+        gg.sleep(99)
     end
 end
 
@@ -96,46 +96,28 @@ function ResetBaper()
     if PakeBaper == 1 then
         if not originalValues or #originalValues == 0 then
             gg.toast("Gak Ada Yang Bisa Direset Nih, Langsung Keluar Aja Yaa...")
-            return
+            gg.clearList()
+            os.exit()
         end
         for i, v in ipairs(originalValues) do
             v.value = v.original
         end
         gg.setValues(originalValues)
         gg.toast("Sekarang Kamu Bisa Menyerang Menggunakan Barang Perangmu Lagi...")
-		gg.setVisible(false)
-		while true do
-			if gg.isVisible(true) then
-				gg.setVisible(false)
-				ResetBaper()
-				break
-			end
-			gg.sleep(500)
-		end
-
+        gg.clearList()
+        gg.setVisible(false)
+        while true do
+            if gg.isVisible(true) then
+                gg.setVisible(false)
+                ResetBaper()
+                break
+            end
+            gg.sleep(99)
+        end
     elseif PakeBaper == 2 then
-        Keluar()
-    end
-end
-
-function Keluar()
-    local confirm = gg.alert("Apakah Anda yakin ingin keluar?", "Ya", "Tidak")
-    if confirm == 1 then
-        gg.toast("Keluar Dari Scripts, By Lii 'BageRun' Khisya.")
-		gg.clearList()
+        gg.clearList()
         os.exit()
-	elseif confirm == 2 then
-		gg.setVisible(false)
-		gg.toast("Kembali Ke Scripts...")
-		while true do
-			if gg.isVisible(true) then
-				gg.setVisible(false)
-				ResetBaper()
-				break
-			end
-			gg.sleep(500)
-		end
-	end
+    end
 end
 
 NoBaper()
