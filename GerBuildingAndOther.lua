@@ -1,4 +1,4 @@
-if nil then MenuUtama() end
+local HideUI = 0
 
 function MenuUtama()
     local pilihan = gg.choice({
@@ -20,39 +20,162 @@ function MenuUtama()
     end
 
     if pilihan == 1 then
-        BangunanBiasa()
+        OpsiBangunanBiasa()
     elseif pilihan == 2 then
         EpikMana()
     elseif pilihan == 3 then
-        Utilitas()
+        OpsiUtilitasMana()
     elseif pilihan == 4 then
         Keluar()
     end
 end
 
-function EpikMana()
-    local PilihAchievement = gg.choice({
-        "Bangunan Epik Biasa",
-        "Bangunan Epik Random",
+function OpsiBangunanBiasa()
+    local BangunanBiasaTipe = gg.choice({
+        "Puri Maxis, Daniel, Ect.",
+        "Rumah Kota",
+        "Rumah Lembah Kota",
+        "Taman Lembah Kota",
         "Kembali"
     }, nil, "Epik Mana Yang Ingin Kamu Gunakan? Epik Biasa Bangunannya Tidak Random, Sebaliknya Epik Random.")
 
-    if PilihAchievement == nil then
+    if BangunanBiasaTipe == nil then
         gg.setVisible(false)
         while true do
             if gg.isVisible(true) then
                 gg.setVisible(false)
-                EpikMana()
+                return
             end
             gg.sleep(100)
         end
     end
 
-    if PilihAchievement == 1 then
+    if BangunanBiasaTipe == 1 then
+        MaxisDaniel()
+    elseif BangunanBiasaTipe == 2 then
+        OpsiRumahKotaUtama()
+    elseif BangunanBiasaTipe == 3 then
+        OpsiRumahLembahKota()
+    elseif BangunanBiasaTipe == 4 then
+        OpsiTamanLembahKota()
+    elseif BangunanBiasaTipe == 5 then
+        MenuUtama()
+        return
+    end
+end
+
+function OpsiRumahLembahKota()
+    local ORLK = gg.multiChoice({
+        "Rumah Lembah Hijau Maksimal [Pemadam Kebakaran Kecil]",
+        "Rumah Ngarai Kaktus Maksimal [Kantor Polisi Kecil]",
+        "Rumah Kepulauan Cerah Maksimal [Klinik Kesehatan Kecil]",
+        "Rumah Fyord Beku Maksimal [Taman Air Mancur Kecil]",
+        "Rumah Tebing Batu Kapur Maksimal [Taman Seni Modern]",
+        "Kembali"
+    }, nil, "Pilih Bangunan Mana Yang Kamu Inginkan?")
+
+    if not ORLK then
+        OpsiBangunanBiasa()
+        return
+    end
+
+    if ORLK[1] then searchAndEdit("583140736", "973877747") end
+    if ORLK[2] then searchAndEdit("-150077002", "-1528167776") end
+    if ORLK[3] then searchAndEdit("-66177429", "-1220248775") end
+    if ORLK[4] then searchAndEdit("-1672104106", "2038647854") end
+    if ORLK[5] then searchAndEdit("712780976", "-46404375") end
+    if ORLK[6] then return end
+end
+
+function OpsiTamanLembahKota()
+    local OTLK = gg.multiChoice({
+        "Institut Riset Cahaya Utara L10 [Taman Damai]",
+        "Perhentian Taksi L10 [Plaza Urban]",
+        "Aula Mahjong L10 [Taman Kota Kasino]",
+        "Rumah Minum Teh L10 [Pasar Ikan]",
+        "Kembali"
+    }, nil, "Pilih Bangunan Mana Yang Kamu Inginkan?")
+
+    if not OTLK then
+        OpsiBangunanBiasa()
+        return
+    end
+
+    if OTLK[1] then searchAndEdit("-958560911", "-61527945") end
+    if OTLK[2] then searchAndEdit("-958560910", "776814664") end
+    if OTLK[3] then searchAndEdit("-383906791", "1225598517") end
+    if OTLK[4] then searchAndEdit("-1685111278", "-1053961458") end
+    if OTLK[5] then return end
+end
+
+function MaxisDaniel()
+    local PMPD = gg.multiChoice({
+        "Puri Maxis (Listrik Tenaga Angin Kecil)",
+        "Patung Walikota Terhebat (Menara Air Kecil)",
+        "Patung Maxis Man (Pipa Pembuangan Kecil)",
+        "Kincir Angin Tua (Taman Kolam Refleksi)",
+        "Kembali"
+    }, nil, "Pilih Bangunan Mana Yang Kamu Inginkan?")
+
+    if not PMPD then
+        OpsiBangunanBiasa()
+        return
+    end
+
+    if PMPD[1] then searchAndEdit("751144117", "925375395") end
+    if PMPD[2] then searchAndEdit("139346164", "2040088750") end
+    if PMPD[3] then searchAndEdit("182280403", "-2089966647") end
+    if PMPD[4] then searchAndEdit("-1250093364", "1321420829") end
+    if PMPD[5] then return end
+end
+
+function OpsiRumahKotaUtama()
+    local ORKU = gg.multiChoice({
+        "Rumah Biasa Max [Listrik Batu Bara]",
+        "Rumah Tokyo Max [Pipa Pembuangan Besar]",
+        "Rumah Paris Max [Pembuangan Sampah Kecil]",
+        "Rumah London Max [Pembuangan Sampah Besar]",
+        "Rumah Neo Max [Listrik Tenaga Angin Besar]",
+        "Kembali"
+    }, nil, "Pilih Bangunan Mana Yang Kamu Inginkan?")
+
+    if not ORKU then
+        OpsiBangunanBiasa()
+        return
+    end
+
+    if ORKU[1] then searchAndEdit("-1297331478", "1522778650") end
+    if ORKU[2] then searchAndEdit("-12118437", "1493262871") end
+    if ORKU[3] then searchAndEdit("-741284489", "2050186616") end
+    if ORKU[4] then searchAndEdit("-935683329", "-1203406301") end
+    if ORKU[5] then searchAndEdit("43959869", "-1430868908") end
+    if ORKU[6] then return end
+end
+
+function EpikMana()
+    local EpikManaTipe = gg.choice({
+        "Bangunan Epik Biasa",
+        "Bangunan Epik Random",
+        "Kembali"
+    }, nil, "Epik Mana Yang Ingin Kamu Gunakan? Epik Biasa Bangunannya Tidak Random, Sebaliknya Epik Random.")
+
+    if EpikManaTipe == nil then
+        gg.setVisible(false)
+        while true do
+            if gg.isVisible(true) then
+                gg.setVisible(false)
+                EpikMana()
+                return
+            end
+            gg.sleep(100)
+        end
+    end
+
+    if EpikManaTipe == 1 then
         BangunanEpik()
-    elseif PilihAchievement == 2 then
+    elseif EpikManaTipe == 2 then
         EpikAcak()
-    elseif PilihAchievement == 3 then
+    elseif EpikManaTipe == 3 then
         MenuUtama()
     end
 end
@@ -68,61 +191,6 @@ function searchAndEdit(searchValue, editValue)
     else
         gg.toast("Pencarian Tidak Ditemukan!")
     end
-end
-
-function BangunanBiasa()
-    local BiasaPilihan = gg.multiChoice({
-        "Puri Maxis [Listrik Tenaga Angin Kecil]",
-        "Patung Walikota Terhebat [Menara Air Kecil]",
-        "Patung Maxis Man [Pipa Pembuangan Kecil]",
-        "Rumah Biasa Maksimal [Listrik Batu Bara]",
-        "Rumah Tokyo Maksimal [Pipa Pembuangan Besar]",
-        "Rumah Paris Maksimal [Pembuangan Sampah Kecil]",
-        "Rumah London Maksimal [Pembuangan Sampah Besar]",
-        "Rumah Neo Maksimal [Listrik Tenaga Angin Besar]",
-        "Rumah Lembah Hijau Maksimal [Pemadam Kebakaran Kecil]",
-        "Rumah Ngarai Kaktus Maksimal [Kantor Polisi Kecil]",
-        "Rumah Kepulauan Cerah Maksimal [Klinik Kesehatan Kecil]",
-        "Rumah Fyord Beku Maksimal [Taman Air Mancur Kecil]",
-        "Rumah Tebing Batu Kapur Maksimal [Taman Seni Modern]",
-        "Lanskap Kincir Air Tua [Taman Kolam Refleksi]",
-        "Institut Riset Cahaya Utara L10 [Taman Damai]",
-        "Perhentian Taksi L10 [Plaza Urban]",
-        "Aula Mahjong L10 [Taman Kota Kasino]",
-        "Rumah Minum Teh L10 [Pasar Ikan]",
-        "Kembali"
-    }, nil, "Taruh Bangunan Sigma Yang Tertera Di Scripts Sebelum MeRizz Kai Cenat, Pastikan Tidak L By Fanum Tax")
-
-    if not BiasaPilihan then
-        gg.setVisible(false)
-        while true do
-            if gg.isVisible(true) then
-                gg.setVisible(false)
-                BangunanBiasa()
-            end
-            gg.sleep(100)
-        end
-    end
-    
-    if BiasaPilihan[1] then searchAndEdit("751144117", "925375395") end
-    if BiasaPilihan[2] then searchAndEdit("139346164", "2040088750") end
-    if BiasaPilihan[3] then searchAndEdit("182280403", "-2089966647") end
-    if BiasaPilihan[4] then searchAndEdit("-1297331478", "1522778650") end
-    if BiasaPilihan[5] then searchAndEdit("-12118437", "1493262871") end
-    if BiasaPilihan[6] then searchAndEdit("-741284489", "2050186616") end
-    if BiasaPilihan[7] then searchAndEdit("-935683329", "-1203406301") end
-    if BiasaPilihan[8] then searchAndEdit("43959869", "-1430868908") end
-    if BiasaPilihan[9] then searchAndEdit("583140736", "973877747") end
-    if BiasaPilihan[10] then searchAndEdit("-150077002", "-1528167776") end
-    if BiasaPilihan[11] then searchAndEdit("-66177429", "-1220248775") end
-    if BiasaPilihan[12] then searchAndEdit("-1672104106", "2038647854") end
-    if BiasaPilihan[13] then searchAndEdit("712780976", "-46404375") end
-    if BiasaPilihan[14] then searchAndEdit("-1250093364", "1321420829") end
-    if BiasaPilihan[15] then searchAndEdit("-958560911", "-61527945") end
-    if BiasaPilihan[16] then searchAndEdit("-958560910", "776814664") end
-    if BiasaPilihan[17] then searchAndEdit("-383906791", "1225598517") end
-    if BiasaPilihan[18] then searchAndEdit("-1685111278", "-1053961458") end
-    if BiasaPilihan[19] then MenuUtama() end
 end
 
 -- Untuk Bangunan Epik
@@ -157,6 +225,7 @@ function BangunanEpik()
             if gg.isVisible(true) then
                 gg.setVisible(false)
                 BangunanEpik()
+                return
             end
             gg.sleep(100)
         end
@@ -187,45 +256,96 @@ function EditUtilitas(searchValue, editValue)
     end
 end
 
-function Utilitas() 
-    Utility = gg.multiChoice({ 
-    "Gudang Kota Max [Gudang Kota Awal]", 
-    "Gudang Omega Max [Gudang Omega Awal]", 
-    "Neo Bank Max [Neo Bank Awal]", 
-    "Buka & Upgrade Menara Vu Level 18", 
-    "Buka Neo Mall dibawah level 30", 
-    "Tutup Neo Mall dibawah level 30", 
-    "Ganti Papan Iklan jadi Laba-laba", 
+function RefreshFiturUtilitas()
+    local RFU = gg.multiChoice({
+        "Papan Iklan Menjadi Spider", 
+        "Refresh Projek Epik", 
+        "Kembali",
+    }, nil, "Pilih Fitur Mana Yang Kamu Inginkan?")
+
+    if not RFU then
+        OpsiUtilitasMana()
+        return
+    end
+
+    if RFU[1] then EditUtilitas("49899925", "-1323273224") end
+    if RFU[2] then EditUtilitas("43200000", "0") end
+    if RFU[3] then return end
+end
+
+function OpsiVuNeoMallMana() 
+    OVNMM = gg.multiChoice({ 
+    "Unlock Menara Vu Level Max", 
+    "Unlock Neo Mall", 
+    "Tutup Neo Mall", 
     "Refresh Neo Mall", 
-    "Refresh waktu tunggu Projects Sigma Epic", 
-    "Kembali", 
+    "Kembali",
     }, nil, "Fungsi Jelqing Akan Infinity Aura W's Update") 
 
-    if not Utility then
-        gg.setVisible(false)
-        while true do
-            if gg.isVisible(true) then
-                gg.setVisible(false)
-                Utility()
-            end
-            gg.sleep(100)
-        end
+    if not OVNMM then
+        OpsiUtilitasMana()
+        return
     end
-    
-    if Utility[1] then EditUtilitas("1785034572", "-1223401048") end
-    if Utility[2] then EditUtilitas("-5428496", "-179140214") end
-    if Utility[3] then EditUtilitas("1148880551", "-741647391") end
-    if Utility[4] then EditUtilitas("2019791904", "1362697172") end
-    if Utility[5] then EditUtilitas("424671600", "2087261488") end
-    if Utility[6] then EditUtilitas("2087261488", "424671600") end
-    if Utility[7] then EditUtilitas("49899925", "-1323273224") end
-    if Utility[8] then EditUtilitas("21600000", "0") end
-    if Utility[9] then EditUtilitas("43200000", "0") end
-    if Utility[10] then MenuUtama() end
+
+    if OVNMM[1] then
+        EditUtilitas("2019791904", "1362697172")
+    end
+    if OVNMM[2] then
+        EditUtilitas("424671600", "2087261488")
+    end
+    if OVNMM[3] then
+        EditUtilitas("2087261488", "424671600")
+    end
+    if OVNMM[4] then
+        EditUtilitas("21600000", "0")
+    end
+    if OVNMM[5] then
+        return
+    end
+end
+
+function OpsiUtilitasMana()
+    local OUM = gg.choice({
+        "Gudang Max", 
+        "Vu & Neo Mall", 
+        "Lainnya", 
+        "Kembali"
+    }, nil, "Pilih Fitur Mana Yang Kamu Inginkan?")
+
+    if OUM == 4 then
+        MenuUtama()
+    elseif OUM == 1 then
+        OpsiGudangMaxMana()
+    elseif OUM == 2 then
+        OpsiVuNeoMallMana()
+    elseif OUM == 3 then
+        RefreshFiturUtilitas()
+    end
+end
+
+function OpsiGudangMaxMana()
+    local OGMM = gg.multiChoice({
+        "Gudang Kota Max", 
+        "Gudang omega Max (Gudang Omega Awal)", 
+        "Penyimpanan Neo Bank Max (Neo Bank Awal)", 
+        "Kembali",
+    }, nil, "Pilih Fitur Mana Yang Kamu Inginkan?")
+
+    if not OGMM then OpsiUtilitasMana()
+        return
+    end
+    if OGMM[1] then
+        gg.alert("Total Penyimpanan Gudang Harus 40! Jika Lebih, Fitur Tidak Akan Berhasil.")
+        EditUtilitas("1785034572", "-1223401048") end
+    if OGMM[2] then
+        EditUtilitas("-5428496", "-179140214") end
+    if OGMM[3] then
+        EditUtilitas("1148880551", "-741647391") end
+    if OGMM[4] then return end
 end
 
 function EpikAcak() 
-    BD = gg.multiChoice({ 
+    OpsiEpikAcak = gg.multiChoice({ 
         "Fast Epic Pendidikan [Bangun Area Rumah Biasa]", 
         "CLEAR EPIC Pendidikan", 
         "Fast Epic Perjudian [Bangun Area Rumah Biasa]", 
@@ -243,32 +363,35 @@ function EpikAcak()
         "Kembali", 
     }, nil, "Setiap Gen Z Mengganti Mewing Streak Fast Epic, Gooning CLEAR EPIC Agar W's Milkshake")
 
-    if not BD then
+    if not OpsiEpikAcak then
         gg.setVisible(false)
         while true do
             if gg.isVisible(true) then
                 gg.setVisible(false)
                 EpikAcak()
+                return
             end
             gg.sleep(100)
         end
     end
 
-    if BD[1] then searchandeditfastepik(1522778645, -1881032548) end 
-    if BD[2] then searchandeditfastepik(-1881032548, nil, true) end 
-    if BD[3] then searchandeditfastepik(1522778645, -691412735) end 
-    if BD[4] then searchandeditfastepik(-691412735, nil, true) end 
-    if BD[5] then searchandeditfastepik(1522778645, -447372290) end 
-    if BD[6] then searchandeditfastepik(-447372290, nil, true) end 
-    if BD[7] then searchandeditfastepik(1522778645, 1813794920) end 
-    if BD[8] then searchandeditfastepik(1813794920, nil, true) end 
-    if BD[9] then searchandeditfastepik(1522778645, -113962678) end 
-    if BD[10] then searchandeditfastepik(-113962678, nil, true) end 
-    if BD[11] then searchandeditfastepik(1522778645, -1999290445) end 
-    if BD[12] then searchandeditfastepik(-1999290445, nil, true) end 
-    if BD[13] then searchandeditfastepik(1522778645, 995463179) end 
-    if BD[14] then searchandeditfastepik(995463179, nil, true) end 
-    if BD[15] then MenuUtama() end
+    if OpsiEpikAcak[1] then searchandeditfastepik(1522778645, -1881032548) end 
+    if OpsiEpikAcak[2] then searchandeditfastepik(-1881032548, nil, true) end 
+    if OpsiEpikAcak[3] then searchandeditfastepik(1522778645, -691412735) end 
+    if OpsiEpikAcak[4] then searchandeditfastepik(-691412735, nil, true) end 
+    if OpsiEpikAcak[5] then searchandeditfastepik(1522778645, -447372290) end 
+    if OpsiEpikAcak[6] then searchandeditfastepik(-447372290, nil, true) end 
+    if OpsiEpikAcak[7] then searchandeditfastepik(1522778645, 1813794920) end 
+    if OpsiEpikAcak[8] then searchandeditfastepik(1813794920, nil, true) end 
+    if OpsiEpikAcak[9] then searchandeditfastepik(1522778645, -113962678) end 
+    if OpsiEpikAcak[10] then searchandeditfastepik(-113962678, nil, true) end 
+    if OpsiEpikAcak[11] then searchandeditfastepik(1522778645, -1999290445) end 
+    if OpsiEpikAcak[12] then searchandeditfastepik(-1999290445, nil, true) end 
+    if OpsiEpikAcak[13] then searchandeditfastepik(1522778645, 995463179) end 
+    if OpsiEpikAcak[14] then searchandeditfastepik(995463179, nil, true) end 
+    if OpsiEpikAcak[15] then MenuUtama()
+        return
+    end
 end
 
 -- Untuk Epic Acak
@@ -297,6 +420,20 @@ end
 function Keluar() 
     gg.toast("Apa Yang Dicari Orang Sigma? Bintang Skibidi, P Diddy Ahh Mango Still Water Balkan Rage In Ohio Pay With Aura") 
     os.exit()
+end
+
+while true do
+    if gg.isVisible(true) then
+        HideUI = 1
+        gg.setVisible(false)
+        gg.sleep(444)
+    end
+    gg.clearResults()
+    if HideUI == 1 then
+        MenuUtama()
+        break
+        gg.sleep(444)
+    end
 end
 
 MenuUtama()
