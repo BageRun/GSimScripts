@@ -1,4 +1,5 @@
 function MenuUtama()
+    gg.setVisible(false)
     local pilihan = gg.choice({
         "Bangunan Biasa",
         "Bangunan Epik",
@@ -38,14 +39,7 @@ function OpsiBangunanBiasa()
     }, nil, "Epik Mana Yang Ingin Kamu Gunakan? Epik Biasa Bangunannya Tidak Random, Sebaliknya Epik Random.")
 
     if BangunanBiasaTipe == nil then
-        gg.setVisible(false)
-        while true do
-            if gg.isVisible(true) then
-                gg.setVisible(false)
-                return
-            end
-            gg.sleep(100)
-        end
+        return MenuUtama()
     end
 
     if BangunanBiasaTipe == 1 then
@@ -73,8 +67,7 @@ function OpsiRumahLembahKota()
     }, nil, "Pilih Bangunan Mana Yang Kamu Inginkan?")
 
     if not ORLK then
-        OpsiBangunanBiasa()
-        return
+        return OpsiBangunanBiasa()
     end
 
     if ORLK[1] then searchAndEdit("583140736", "973877747") end
@@ -95,8 +88,7 @@ function OpsiTamanLembahKota()
     }, nil, "Pilih Bangunan Mana Yang Kamu Inginkan?")
 
     if not OTLK then
-        OpsiBangunanBiasa()
-        return
+        return OpsiBangunanBiasa()
     end
 
     if OTLK[1] then searchAndEdit("-958560911", "-61527945") end
@@ -116,8 +108,7 @@ function MaxisDaniel()
     }, nil, "Pilih Bangunan Mana Yang Kamu Inginkan?")
 
     if not PMPD then
-        OpsiBangunanBiasa()
-        return
+        return OpsiBangunanBiasa()
     end
 
     if PMPD[1] then searchAndEdit("751144117", "925375395") end
@@ -138,8 +129,7 @@ function OpsiRumahKotaUtama()
     }, nil, "Pilih Bangunan Mana Yang Kamu Inginkan?")
 
     if not ORKU then
-        OpsiBangunanBiasa()
-        return
+        return OpsiBangunanBiasa()
     end
 
     if ORKU[1] then searchAndEdit("-1297331478", "1522778650") end
@@ -158,15 +148,7 @@ function EpikMana()
     }, nil, "Epik Mana Yang Ingin Kamu Gunakan? Epik Biasa Bangunannya Tidak Random, Sebaliknya Epik Random.")
 
     if EpikManaTipe == nil then
-        gg.setVisible(false)
-        while true do
-            if gg.isVisible(true) then
-                gg.setVisible(false)
-                EpikMana()
-                return
-            end
-            gg.sleep(100)
-        end
+        return MenuUtama()
     end
 
     if EpikManaTipe == 1 then
@@ -194,9 +176,7 @@ function BangunanEpik()
         gg.setVisible(false)
         while true do
             if gg.isVisible(true) then
-                gg.setVisible(false)
-                BangunanEpik()
-                return
+                return MenuUtama()
             end
             gg.sleep(100)
         end
@@ -220,8 +200,7 @@ function RefreshFiturUtilitas()
     }, nil, "Pilih Fitur Mana Yang Kamu Inginkan?")
 
     if not RFU then
-        OpsiUtilitasMana()
-        return
+        return OpsiUtilitasMana()
     end
 
     if RFU[1] then EditUtilitas("49899925", "-1323273224") end
@@ -239,8 +218,7 @@ function OpsiVuNeoMallMana()
     }, nil, "Fungsi Jelqing Akan Infinity Aura W's Update") 
 
     if not OVNMM then
-        OpsiUtilitasMana()
-        return
+        return OpsiUtilitasMana()
     end
 
     if OVNMM[1] then
@@ -268,6 +246,10 @@ function OpsiUtilitasMana()
         "Kembali"
     }, nil, "Pilih Fitur Mana Yang Kamu Inginkan?")
 
+    if OUM == nil then
+        return MenuUtama()
+    end
+
     if OUM == 4 then
         MenuUtama()
     elseif OUM == 1 then
@@ -287,8 +269,8 @@ function OpsiGudangMaxMana()
         "Kembali",
     }, nil, "Pilih Fitur Mana Yang Kamu Inginkan?")
 
-    if not OGMM then OpsiUtilitasMana()
-        return
+    if not OGMM then
+        return OpsiUtilitasMana()
     end
     if OGMM[1] then
         gg.alert("Total Penyimpanan Gudang Harus 40! Jika Lebih, Fitur Tidak Akan Berhasil.")
@@ -323,9 +305,7 @@ function EpikAcak()
         gg.setVisible(false)
         while true do
             if gg.isVisible(true) then
-                gg.setVisible(false)
-                EpikAcak()
-                return
+                return MenuUtama()
             end
             gg.sleep(100)
         end
