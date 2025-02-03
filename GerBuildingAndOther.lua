@@ -1,5 +1,3 @@
-local HideUI = 0
-
 function MenuUtama()
     local pilihan = gg.choice({
         "Bangunan Biasa",
@@ -180,33 +178,6 @@ function EpikMana()
     end
 end
 
-function searchAndEdit(searchValue, editValue)
-    gg.clearResults()
-    gg.searchNumber(searchValue, gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
-    local results = gg.getResults(200)
-    if #results > 0 then
-        gg.editAll(editValue, gg.TYPE_DWORD)
-        gg.toast("Pergi Ke Ohio Untuk +1000 Aura Lalu Kembali Lagi Ke Kota")
-        gg.clearResults()
-    else
-        gg.toast("Pencarian Tidak Ditemukan!")
-    end
-end
-
--- Untuk Bangunan Epik
-function searchAndEditEpik(searchValue, editValue)
-    gg.clearResults()
-    gg.searchNumber(searchValue, gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
-    local results = gg.getResults(200)
-    if #results > 0 then
-        gg.editAll(editValue, gg.TYPE_DWORD)
-        gg.toast("Pergi Ke Ohio Untuk +1000 Aura Lalu Kembali Lagi Ke Kota")
-        gg.clearResults()
-    else
-        gg.toast("Pencarian Tidak Ditemukan!")
-    end
-end
-
 function BangunanEpik() 
     Epik = gg.multiChoice({ 
     "Epik Spesialisasi Pendidikan [Pembakaran Sampah]", 
@@ -239,21 +210,6 @@ function BangunanEpik()
     if Epik[6] then searchAndEditEpik("1155556851", "-1999290445") end
     if Epik[7] then searchAndEditEpik("58778652", "995463179") end
     if Epik[8] then MenuUtama() end
-end
-
--- Untuk Utilitas
-function EditUtilitas(searchValue, editValue)
-    gg.setVisible(false)
-    gg.clearResults()
-    gg.searchNumber(searchValue, gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
-    local results = gg.getResults(200)
-    if #results > 0 then
-        gg.editAll(editValue, gg.TYPE_DWORD)
-        gg.toast("Pergi Ke Ohio Untuk +1000 Aura Lalu Kembali Lagi Ke Kota")
-        gg.clearResults()
-    else
-        gg.toast("Pencarian Tidak Ditemukan!")
-    end
 end
 
 function RefreshFiturUtilitas()
@@ -394,6 +350,55 @@ function EpikAcak()
     end
 end
 
+-- Untuk Biasa
+function searchAndEdit(searchValue, editValue)
+    gg.clearResults()
+    gg.searchNumber(searchValue, gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
+    local results = gg.getResults(200)
+    if #results > 0 then
+        gg.editAll(editValue, gg.TYPE_DWORD)
+        gg.toast("Pergi Ke Ohio Untuk +1000 Aura Lalu Kembali Lagi Ke Kota")
+        gg.clearResults()
+    else
+        gg.toast("Pencarian Tidak Ditemukan!")
+    end
+
+    return MenuUtama()
+end
+
+-- Untuk Bangunan Epik
+function searchAndEditEpik(searchValue, editValue)
+    gg.clearResults()
+    gg.searchNumber(searchValue, gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
+    local results = gg.getResults(200)
+    if #results > 0 then
+        gg.editAll(editValue, gg.TYPE_DWORD)
+        gg.toast("Pergi Ke Ohio Untuk +1000 Aura Lalu Kembali Lagi Ke Kota")
+        gg.clearResults()
+    else
+        gg.toast("Pencarian Tidak Ditemukan!")
+    end
+
+    return MenuUtama()
+end
+
+-- Untuk Utilitas
+function EditUtilitas(searchValue, editValue)
+    gg.setVisible(false)
+    gg.clearResults()
+    gg.searchNumber(searchValue, gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
+    local results = gg.getResults(200)
+    if #results > 0 then
+        gg.editAll(editValue, gg.TYPE_DWORD)
+        gg.toast("Pergi Ke Ohio Untuk +1000 Aura Lalu Kembali Lagi Ke Kota")
+        gg.clearResults()
+    else
+        gg.toast("Pencarian Tidak Ditemukan!")
+    end
+
+    return MenuUtama()
+end
+
 -- Untuk Epic Acak
 function searchandeditfastepik(searchVal, editVal, isRevert)
     gg.setVisible(false)
@@ -412,28 +417,15 @@ function searchandeditfastepik(searchVal, editVal, isRevert)
             gg.clearResults()
         else
             gg.toast("Tidak ada hasil yang ditemukan untuk revert!")
-            MenuUtama()
         end
     end
+
+    return MenuUtama()
 end
 
 function Keluar() 
     gg.toast("Apa Yang Dicari Orang Sigma? Bintang Skibidi, P Diddy Ahh Mango Still Water Balkan Rage In Ohio Pay With Aura") 
     os.exit()
-end
-
-while true do
-    if gg.isVisible(true) then
-        HideUI = 1
-        gg.setVisible(false)
-        gg.sleep(444)
-    end
-    gg.clearResults()
-    if HideUI == 1 then
-        MenuUtama()
-        break
-        gg.sleep(444)
-    end
 end
 
 MenuUtama()

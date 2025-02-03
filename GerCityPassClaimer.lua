@@ -1,5 +1,3 @@
-local HideUI = 0
-
 function MenuUtama()
     PassKota = gg.choice({
         "Simoleon",
@@ -73,6 +71,7 @@ function Simoleon()
     gg.setValues(Simoleon)
     gg.toast("Simoleon Sudah Diubah Jadi " .. JumlahSimoleonYangDiInginkan .. " Yaa, Sekarang Claim Di Pass Kota..")
     gg.clearResults()
+    return MenuUtama()
 end
 
 function SimcashPass()
@@ -134,6 +133,7 @@ function SimcashPass()
     gg.setValues(SimcashPassRequest)
     gg.toast("Simcash Berhasil Diubah Menjadi " .. jumlahSimcashDiinginkan .. " Yaa... Sekarang Tinggal Claim Aja Di Pass Kota...")
     gg.clearResults()
+    return MenuUtama()
 end
 
 function KunciEmasPass()
@@ -175,6 +175,7 @@ function KunciEmasPass()
     gg.setValues(KunciEmas)
     gg.toast("Kunci Emas Sudah Diubah Jadi " .. JumlahKunciEmasYangDiInginkan .. " Yaa, Sekarang Claim Di Pass Kota..")
     gg.clearResults()
+    return MenuUtama()
 end
 
 function KunciPlatinumPass()
@@ -216,6 +217,7 @@ function KunciPlatinumPass()
     gg.setValues(KunciPlatinum)
     gg.toast("Kunci Platinum Sudah Diubah Jadi " .. JumlahKunciPlatinumYangDiInginkan .. " Yaa, Sekarang Claim Di Pass Kota..")
     gg.clearResults()
+    return MenuUtama()
 end
 
 function GerOut()
@@ -224,21 +226,7 @@ function GerOut()
         gg.toast("Keluar Dari Scripts, By Lii 'BageRun' Khisya.")
         os.exit()
     elseif confirm == 2 then
-        return
-    end
-end
-
-while true do
-    if gg.isVisible(true) then
-        HideUI = 1
-        gg.setVisible(false)
-        gg.sleep(222)
-    end
-    gg.clearResults()
-    if HideUI == 1 then
-        MenuUtama()
-        break
-        gg.sleep(222)
+        return MenuUtama()
     end
 end
 

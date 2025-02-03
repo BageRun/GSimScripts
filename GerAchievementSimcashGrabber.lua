@@ -1,8 +1,3 @@
-if nil then
-    gg.clearResults()
-    MenuUtama()
-end
-
 function MenuUtama()
     gg.setVisible(false)
     local pilihan = gg.choice({
@@ -94,6 +89,7 @@ function AkuNew49K()
 
     gg.clearResults()
     gg.alert("Semuanya Siap, Langsung Ambil Simcashnya Yaa...")
+    return MenuUtama()
 end
 
 function AchievementPilihan()
@@ -180,6 +176,7 @@ function AchievementPilihan()
         end
     else
         gg.toast("Syarat Achievement Gak Ketemu...")
+        return
     end
 
     if #hasilSimcash > 0 then
@@ -189,7 +186,9 @@ function AchievementPilihan()
         end
         gg.setValues(hasilSimcash)
         gg.alert("Hadiah Simcash Udah Diubah Jadi " .. jumlahSimcashDiinginkan .. ", Silakan Ambil Hadiah di Mansion Yaa...")
+        return MenuUtama()
     else
+    
         gg.toast("Hadiah Simcash Gak Ketemu...")
         return
     end
@@ -308,7 +307,7 @@ function AchievementPresisi()
             end
         end
         gg.alert("Hadiah Simcash Udah Diubah Jadi " .. jumlahSimcashDiinginkan .. ", Cek Ke Mansion Yaa...")
-        MenuUtama()
+        return MenuUtama()
     else
         gg.toast("Address Hadiah Gak Valid...")
     end
