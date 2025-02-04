@@ -27,6 +27,7 @@ function MenuUtama()
     elseif pilihan == 4 then
         Keluar()
     end
+    GerUI = -1
 end
 
 function OpsiBangunanBiasa()
@@ -76,6 +77,7 @@ function OpsiRumahLembahKota()
     if ORLK[4] then searchAndEdit("-1672104106", "2038647854") end
     if ORLK[5] then searchAndEdit("712780976", "-46404375") end
     if ORLK[6] then return end
+    GerUI = -1
 end
 
 function OpsiTamanLembahKota()
@@ -96,6 +98,7 @@ function OpsiTamanLembahKota()
     if OTLK[3] then searchAndEdit("-383906791", "1225598517") end
     if OTLK[4] then searchAndEdit("-1685111278", "-1053961458") end
     if OTLK[5] then return end
+    GerUI = -1
 end
 
 function MaxisDaniel()
@@ -116,6 +119,7 @@ function MaxisDaniel()
     if PMPD[3] then searchAndEdit("182280403", "-2089966647") end
     if PMPD[4] then searchAndEdit("-1250093364", "1321420829") end
     if PMPD[5] then return end
+    GerUI = -1
 end
 
 function OpsiRumahKotaUtama()
@@ -138,6 +142,7 @@ function OpsiRumahKotaUtama()
     if ORKU[4] then searchAndEdit("-935683329", "-1203406301") end
     if ORKU[5] then searchAndEdit("43959869", "-1430868908") end
     if ORKU[6] then return end
+    GerUI = -1
 end
 
 function EpikMana()
@@ -156,7 +161,7 @@ function EpikMana()
     elseif EpikManaTipe == 2 then
         EpikAcak()
     elseif EpikManaTipe == 3 then
-        MenuUtama()
+        return MenuUtama()
     end
 end
 
@@ -189,7 +194,8 @@ function BangunanEpik()
     if Epik[5] then searchAndEditEpik("-1397016258", "-113962678") end
     if Epik[6] then searchAndEditEpik("1155556851", "-1999290445") end
     if Epik[7] then searchAndEditEpik("58778652", "995463179") end
-    if Epik[8] then MenuUtama() end
+    if Epik[8] then return end
+    GerUI = -1
 end
 
 function RefreshFiturUtilitas()
@@ -206,6 +212,7 @@ function RefreshFiturUtilitas()
     if RFU[1] then EditUtilitas("49899925", "-1323273224") end
     if RFU[2] then EditUtilitas("43200000", "0") end
     if RFU[3] then return end
+    GerUI = -1
 end
 
 function OpsiVuNeoMallMana() 
@@ -236,6 +243,7 @@ function OpsiVuNeoMallMana()
     if OVNMM[5] then
         return
     end
+    GerUI = -1
 end
 
 function OpsiUtilitasMana()
@@ -251,7 +259,7 @@ function OpsiUtilitasMana()
     end
 
     if OUM == 4 then
-        MenuUtama()
+        return
     elseif OUM == 1 then
         OpsiGudangMaxMana()
     elseif OUM == 2 then
@@ -280,6 +288,7 @@ function OpsiGudangMaxMana()
     if OGMM[3] then
         EditUtilitas("1148880551", "-741647391") end
     if OGMM[4] then return end
+    GerUI = -1
 end
 
 function EpikAcak() 
@@ -325,9 +334,8 @@ function EpikAcak()
     if OpsiEpikAcak[12] then searchandeditfastepik(-1999290445, nil, true) end 
     if OpsiEpikAcak[13] then searchandeditfastepik(1522778645, 995463179) end 
     if OpsiEpikAcak[14] then searchandeditfastepik(995463179, nil, true) end 
-    if OpsiEpikAcak[15] then MenuUtama()
-        return
-    end
+    if OpsiEpikAcak[15] then return end
+    GerUI = -1
 end
 
 -- Untuk Biasa
@@ -337,13 +345,11 @@ function searchAndEdit(searchValue, editValue)
     local results = gg.getResults(200)
     if #results > 0 then
         gg.editAll(editValue, gg.TYPE_DWORD)
-        gg.toast("Pergi Ke Ohio Untuk +1000 Aura Lalu Kembali Lagi Ke Kota")
+        gg.toast("Selesai, Keluar Dari Game / Pergi Ke Kota Daniel Lalu Kembali Lagi Ke Dalam Game...")
         gg.clearResults()
     else
-        gg.toast("Pencarian Tidak Ditemukan!")
+        gg.toast("Pencarian Gagal, Coba Restart Game Nya Dulu Yaa...")
     end
-
-    return MenuUtama()
 end
 
 -- Untuk Bangunan Epik
@@ -353,13 +359,11 @@ function searchAndEditEpik(searchValue, editValue)
     local results = gg.getResults(200)
     if #results > 0 then
         gg.editAll(editValue, gg.TYPE_DWORD)
-        gg.toast("Pergi Ke Ohio Untuk +1000 Aura Lalu Kembali Lagi Ke Kota")
+        gg.toast("Selesai, Keluar Dari Game / Pergi Ke Kota Daniel Lalu Kembali Lagi Ke Dalam Game...")
         gg.clearResults()
     else
-        gg.toast("Pencarian Tidak Ditemukan!")
+        gg.toast("Pencarian Gagal, Coba Restart Game Nya Dulu Yaa...")
     end
-
-    return MenuUtama()
 end
 
 -- Untuk Utilitas
@@ -370,13 +374,11 @@ function EditUtilitas(searchValue, editValue)
     local results = gg.getResults(200)
     if #results > 0 then
         gg.editAll(editValue, gg.TYPE_DWORD)
-        gg.toast("Pergi Ke Ohio Untuk +1000 Aura Lalu Kembali Lagi Ke Kota")
+        gg.toast("Selesai, Keluar Dari Game / Pergi Ke Kota Daniel Lalu Kembali Lagi Ke Dalam Game...")
         gg.clearResults()
     else
-        gg.toast("Pencarian Tidak Ditemukan!")
+        gg.toast("Pencarian Gagal, Coba Restart Game Nya Dulu Yaa...")
     end
-
-    return MenuUtama()
 end
 
 -- Untuk Epic Acak
@@ -388,7 +390,7 @@ function searchandeditfastepik(searchVal, editVal, isRevert)
 
     if editVal then 
         gg.editAll(tostring(editVal), gg.TYPE_DWORD)
-        gg.toast("Pergi Ke Ohio Untuk +1000 Aura Lalu Kembali Lagi Ke Kota")
+        gg.toast("Bangun Rumah Biasa Level 1, Lalu Pergi Ke Kota Lain, Dan Kembali Lagi...")
         gg.clearResults()
     elseif isRevert then
         if results and #results > 0 then
@@ -396,16 +398,26 @@ function searchandeditfastepik(searchVal, editVal, isRevert)
             gg.toast("Berhasil Direset")
             gg.clearResults()
         else
-            gg.toast("Tidak ada hasil yang ditemukan untuk revert!")
+            gg.toast("Gak Ada Yang Bisa Direvert Nih, Coba Restart Game Nya Yaa...")
         end
     end
-
-    return MenuUtama()
 end
 
 function Keluar() 
     gg.toast("Apa Yang Dicari Orang Sigma? Bintang Skibidi, P Diddy Ahh Mango Still Water Balkan Rage In Ohio Pay With Aura") 
     os.exit()
+end
+
+while true do 
+    if gg.isVisible(true) then 
+      GerUI = 1 
+      gg.setVisible(false) 
+    end 
+    gg.clearResults() 
+    if GerUI == 1 then 
+      MenuUtama()
+    end
+    gg.sleep(99)
 end
 
 MenuUtama()
