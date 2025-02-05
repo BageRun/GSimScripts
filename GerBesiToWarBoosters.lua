@@ -1,46 +1,49 @@
-if nil then mainMenu()
-end
-
 local barang = {
     ["Besi"] = "267176888",
 }
 
 local BoosterEnergy = {
-    ["Energy Pump 2"] = "1965976283",
     ["Energy Pump 3"] = "1965976284",
+    ["Energy Pump 2"] = "1965976283",
+    ["Energy Pump 1"] = "1965976282",
 }
 
 local BoosterJackpot = {
-    ["Jackpot 1"] = "1692935226",
-    ["Jackpot 2"] = "1692935227",
     ["Jackpot 3"] = "1692935228",
+    ["Jackpot 2"] = "1692935227",
+    ["Jackpot 1"] = "1692935226",
 }
 
 local BoosterDuD = {
-    ["DuD 2"] = "91798752",
     ["DuD 3"] = "91798753",
+    ["DuD 2"] = "91798752",
+    ["DuD 1"] = "91798751",
 }
 
 local BoosterFreeze = {
-    ["Freeze 2"] = "924894802",
     ["Freeze 3"] = "924894803",
+    ["Freeze 2"] = "924894802",
+    ["Freeze 1"] = "924894801",
 }
 
 local BoosterNegativeEnergy = {
-    ["Negative Energy 2"] = "1736317037",
     ["Negative Energy 3"] = "1736317038",
+    ["Negative Energy 2"] = "1736317037",
+    ["Negative Energy 1"] = "1736317036",
 }
 
 local BoosterUmbrella = {
     ["Umbrella 3"] = "1587235434",
+    ["Umbrella 2"] = "1587235433",
+    ["Umbrella 1"] = "1587235432",
 }
 
 local BoosterCategories = {
     ["Energy"] = BoosterEnergy,
+    ["Negative Energy"] = BoosterNegativeEnergy,
     ["Jackpot"] = BoosterJackpot,
     ["DuD"] = BoosterDuD,
     ["Freeze"] = BoosterFreeze,
-    ["Negative Energy"] = BoosterNegativeEnergy,
     ["Umbrella"] = BoosterUmbrella,
 }
 
@@ -71,10 +74,10 @@ function ubahBarang(barangPilih)
     while true do
         local pilihanKategori = gg.choice({
             "Energy",
-            "Jackpot",
-            "DuD",
-            "Freeze",
             "Negative Energy",
+            "DuD",
+            "Jackpot",
+            "Freeze",
             "Umbrella",
             "Kembali",
         }, nil, "Pilih Kategori Booster untuk Barang: " .. barangPilih)
@@ -88,13 +91,13 @@ function ubahBarang(barangPilih)
             if pilihanKategori == 1 then
                 kategoriNama = "Energy"
             elseif pilihanKategori == 2 then
-                kategoriNama = "Jackpot"
+                kategoriNama = "Negative Energy"
             elseif pilihanKategori == 3 then
                 kategoriNama = "DuD"
             elseif pilihanKategori == 4 then
-                kategoriNama = "Freeze"
+                kategoriNama = "Jackpot"
             elseif pilihanKategori == 5 then
-                kategoriNama = "Negative Energy"
+                kategoriNama = "Freeze"
             elseif pilihanKategori == 6 then
                 kategoriNama = "Umbrella"
             end
@@ -124,7 +127,7 @@ function ubahBooster(barangPilih, boosterKategori, kategoriNama)
             while true do
                 if gg.isVisible(true) then
                     gg.setVisible(false)
-                    mainMenu()
+                    return mainMenu()
 				end
 			end
 
@@ -141,7 +144,6 @@ end
 function gantiNilai(nilaiLama, nilaiBaru, pilihanNama, barangPilih)
     gg.setVisible(false)
     gg.clearResults()
-    gg.searchNumber(nilaiLama, gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
     gg.searchNumber(nilaiLama, gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
     gg.getResults(200)
     gg.editAll(nilaiBaru, gg.TYPE_DWORD)
