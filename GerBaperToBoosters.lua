@@ -2,8 +2,9 @@ local UI = 0
 local lastFunction = nil
 
 local BoosterEnergy = {
-    ["Energy Pump 2"] = "1965976283",
     ["Energy Pump 3"] = "1965976284",
+    ["Energy Pump 2"] = "1965976283",
+    ["Energy Pump 1"] = "1965976282",
 }
 
 local BoosterJackpot = {
@@ -13,22 +14,27 @@ local BoosterJackpot = {
 }
 
 local BoosterDuD = {
-    ["DuD 2"] = "91798752",
     ["DuD 3"] = "91798753",
+    ["DuD 2"] = "91798752",
+    ["DuD 1"] = "91798751",
 }
 
 local BoosterFreeze = {
-    ["Freeze 2"] = "924894802",
     ["Freeze 3"] = "924894803",
+    ["Freeze 2"] = "924894802",
+    ["Freeze 1"] = "924894801",
 }
 
 local BoosterNegativeEnergy = {
-    ["Negative Energy 2"] = "1736317037",
     ["Negative Energy 3"] = "1736317038",
+    ["Negative Energy 2"] = "1736317037",
+    ["Negative Energy 1"] = "1736317036",
 }
 
 local BoosterUmbrella = {
     ["Umbrella 3"] = "1587235434",
+    ["Umbrella 2"] = "1587235433",
+    ["Umbrella 1"] = "1587235432",
 }
 
 local BoosterCategories = {
