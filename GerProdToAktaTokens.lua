@@ -1,8 +1,7 @@
-if nil then mainMenu()
-end
-
 local barang = {
     ["Besi"] = "267176888",
+    ["Kayu"] = "2090874750",
+    ["Plastik"] = "-1270634091",
 }
 
 local AktaToken = {
@@ -17,17 +16,23 @@ function mainMenu()
     while true do
         local pilihanBarang = gg.choice({
             "Besi",
+            "Kayu",
+            "Plastik",
             "Keluar",
-        }, nil, "Pilih Barang Yang Ingin Kamu Ubah Yaa... Sekarang Cuma Ada Metal / Besi.")
+        }, nil, "Pilih Barang Yang Ingin Kamu Ubah, Batas Aman 200 Yaa...")
 
         if pilihanBarang == 1 then
             ubahBarang("Besi")
         elseif pilihanBarang == 2 then
+            ubahBarang("Kayu")
+        elseif pilihanBarang == 3 then
+            ubahBarang("Plastik")
+        elseif pilihanBarang == 4 then
             Keluar()
         elseif pilihanBarang == nil then
             gg.setVisible(false)
             while true do
-                if gg.isVisible(true) then
+                if gg.isVisible() then
                     gg.setVisible(false)
                     mainMenu()
                 end
