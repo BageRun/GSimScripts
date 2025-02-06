@@ -1,5 +1,7 @@
 local barang = {
     ["Besi"] = "267176888",
+    ["Kayu"] = "2090874750",
+    ["Plastik"] = "-1270634091",
 }
 
 local BoosterEnergy = {
@@ -9,9 +11,9 @@ local BoosterEnergy = {
 }
 
 local BoosterJackpot = {
-    ["Jackpot 3"] = "1692935228",
-    ["Jackpot 2"] = "1692935227",
     ["Jackpot 1"] = "1692935226",
+    ["Jackpot 2"] = "1692935227",
+    ["Jackpot 3"] = "1692935228",
 }
 
 local BoosterDuD = {
@@ -40,10 +42,10 @@ local BoosterUmbrella = {
 
 local BoosterCategories = {
     ["Energy"] = BoosterEnergy,
-    ["Negative Energy"] = BoosterNegativeEnergy,
     ["Jackpot"] = BoosterJackpot,
     ["DuD"] = BoosterDuD,
     ["Freeze"] = BoosterFreeze,
+    ["Negative Energy"] = BoosterNegativeEnergy,
     ["Umbrella"] = BoosterUmbrella,
 }
 
@@ -51,21 +53,27 @@ function mainMenu()
     while true do
         local pilihanBarang = gg.choice({
             "Besi",
+            "Kayu",
+            "Plastik",
             "Keluar",
         }, nil, "Pilih Barang Yang Ingin Kamu Ubah, Batas Aman 200 Yaa...")
 
         if pilihanBarang == 1 then
             ubahBarang("Besi")
         elseif pilihanBarang == 2 then
+            ubahBarang("Kayu")
+        elseif pilihanBarang == 3 then
+            ubahBarang("Plastik")
+        elseif pilihanBarang == 4 then
             Keluar()
         elseif pilihanBarang == nil then
             gg.setVisible(false)
             while true do
-                if gg.isVisible(true) then
+                if gg.isVisible() then
                     gg.setVisible(false)
                     mainMenu()
-				end
-			end
+                end
+            end
         end
     end
 end
@@ -74,10 +82,10 @@ function ubahBarang(barangPilih)
     while true do
         local pilihanKategori = gg.choice({
             "Energy",
-            "Negative Energy",
-            "DuD",
             "Jackpot",
+            "DuD",
             "Freeze",
+            "Negative Energy",
             "Umbrella",
             "Kembali",
         }, nil, "Pilih Kategori Booster untuk Barang: " .. barangPilih)
@@ -91,13 +99,13 @@ function ubahBarang(barangPilih)
             if pilihanKategori == 1 then
                 kategoriNama = "Energy"
             elseif pilihanKategori == 2 then
-                kategoriNama = "Negative Energy"
+                kategoriNama = "Jackpot"
             elseif pilihanKategori == 3 then
                 kategoriNama = "DuD"
             elseif pilihanKategori == 4 then
-                kategoriNama = "Jackpot"
-            elseif pilihanKategori == 5 then
                 kategoriNama = "Freeze"
+            elseif pilihanKategori == 5 then
+                kategoriNama = "Negative Energy"
             elseif pilihanKategori == 6 then
                 kategoriNama = "Umbrella"
             end
@@ -127,7 +135,7 @@ function ubahBooster(barangPilih, boosterKategori, kategoriNama)
             while true do
                 if gg.isVisible(true) then
                     gg.setVisible(false)
-                    return mainMenu()
+                    mainMenu()
 				end
 			end
 
@@ -144,6 +152,7 @@ end
 function gantiNilai(nilaiLama, nilaiBaru, pilihanNama, barangPilih)
     gg.setVisible(false)
     gg.clearResults()
+    gg.searchNumber(nilaiLama, gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
     gg.searchNumber(nilaiLama, gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
     gg.getResults(200)
     gg.editAll(nilaiBaru, gg.TYPE_DWORD)
