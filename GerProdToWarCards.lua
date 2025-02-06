@@ -1,8 +1,7 @@
-if nil then mainMenu()
-end
-
 local barang = {
     ["Besi"] = "267176888",
+    ["Kayu"] = "2090874750",
+    ["Plastik"] = "-1270634091",
 }
 
 local ClassSWarcard = {
@@ -28,7 +27,7 @@ local ClassLWarcard = {
 
 local ClassXXLWarcard = {
     ["Building Portal"] = "-35376681",
-    ["B Moive Monster"] = "-35376654",
+    ["B Movie Monster"] = "-35376654",
     ["Hissy Fit"] = "-35376648",
     ["Mellow Bellow"] = "-35376647",
 }
@@ -60,21 +59,27 @@ function mainMenu()
     while true do
         local pilihanBarang = gg.choice({
             "Besi",
+            "Kayu",
+            "Plastik",
             "Keluar",
-        }, nil, "Pilih Barang Yang Ingin Kamu Ubah, Batasnya 280, Lebih Juga Boleh, Cuma Kalo Terbang Ya Nasib...")
+        }, nil, "Pilih Barang Yang Ingin Kamu Ubah, Batas Aman 280 Yaa...")
 
         if pilihanBarang == 1 then
             ubahBarang("Besi")
         elseif pilihanBarang == 2 then
+            ubahBarang("Kayu")
+        elseif pilihanBarang == 3 then
+            ubahBarang("Plastik")
+        elseif pilihanBarang == 4 then
             Keluar()
         elseif pilihanBarang == nil then
             gg.setVisible(false)
             while true do
-                if gg.isVisible(true) then
+                if gg.isVisible() then
                     gg.setVisible(false)
                     mainMenu()
-				end
-			end
+                end
+            end
         end
     end
 end
